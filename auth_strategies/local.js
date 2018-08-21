@@ -1,6 +1,5 @@
 let Strategy = require('passport-local').Strategy;
-let User = require ('../models/user')
-
+let db = require ('../models')
 
 //A strategy is the way we are authenticating. A local stategy is one that doesn't user 3rd party auth.
 //This is the simplest strategy. We are storing the username and password in plaintext in the db (I know, I know. super insecure. It's just an example, don't judge)
@@ -13,7 +12,7 @@ const strategy = new Strategy(
   function(username, password, done) {
 
     //our user is in Sequelize,
-    User.findOne({ 
+    db.User.findOne({ 
         where:{ username: username }
     }).then(
       function (DBuser) {
@@ -24,9 +23,7 @@ const strategy = new Strategy(
               return done(null, false, { message: 'Incorrect username.' });
             }
             if (!DBuser.validPassword(password)) {
-            // if (!(DBuser.password===password)) {
-              console.log("Password " + password + " does not match the password in the DB: " + DBuser.password ); //For the love of all that is good and secure, never console log user passwords in a production app
-
+              console.log("Password does not match");
               return done(null, false, { message: 'Incorrect password.' });
             }
             // if the user exists, and the passwords match, we have a successful Authentication! 

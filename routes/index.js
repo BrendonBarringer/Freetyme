@@ -1,10 +1,9 @@
 const path = require("path");
 const router = require("express").Router();
-const authRoutes = require("./auth/auth-routes");
 // const apiRoutes = require("./api");
 
-// AUTH Routes
-router.use("/auth", authRoutes);
+// Do not add AUTH Routes here.
+// They are added directly from passport-init.
 
 // API Routes
 // router.use("/api", apiRoutes);
