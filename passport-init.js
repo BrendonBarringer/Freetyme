@@ -1,7 +1,7 @@
 let passport      = require('passport');
 let session       = require("express-session")({ secret: "cats", resave: false, saveUninitialized: false  });
 
-// let User = require ('./models/user')
+let db = require ('./models')
 
 module.exports = function(expressApp) {
   //initialize your authentication strategies
@@ -82,14 +82,14 @@ const deserializeUser = function(savedId, done) {
     Since we are using MySQL, use Sequelize to get the user by id
     We just need to match the id column in the database to savedId
     */ 
-    User.findOne({ 
+    db.User.findOne({ 
         where:{ id: savedId },
         attributes: {
           exclude: ["password"] //user has the password in it, let's filter that out...for...security.......yes, I know we saved the password in db in plaintext...get off my back
         }
     }) 
     .then(function(user) {
-        console.log("Got user:", user)
+        // console.log("Got user:", user)
 
         done(null, user);//We have successfully deserialized our user. Call done() with null as the first arg, since no errors.
         //you can now get your user info in req.user

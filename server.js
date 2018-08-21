@@ -3,6 +3,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const db = require("./models");
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,8 +16,7 @@ if (process.env.NODE_ENV === "production") {
 // Passport stuff
 app.use(require('cookie-parser')()); //
 app.use(require('morgan')('combined'));
-// require('./passport-init')(app);
-
+require('./passport-init')(app);
 
 // Define API routes here
 
@@ -26,6 +26,11 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-app.listen(PORT, () => {
-  console.log(`🌎 ==> Server now on port ${PORT}!`);
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+db.sequelize.sync({ force: false }).then(function() {
+  app.listen(PORT, function() {
+    // After sequelize sync completes, start to listen
+    console.log("App listening on port " + PORT);
+  });
 });
