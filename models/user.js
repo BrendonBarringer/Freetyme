@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
   
     User.associate = function(models) {
         // Add relationships here
-        User.hasMany(FreeTime, {foreignKey: 'FreeTime_id'})
+        User.hasMany(models.FreeTime)
     };
 
     User.prototype.validPassword = function(password) {
