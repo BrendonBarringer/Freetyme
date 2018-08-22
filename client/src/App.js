@@ -6,6 +6,8 @@ import Profile from "./pages/Profile";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
+import Calendar from "./pages/Calendar";
+import './components/calendar/less/input-moment.less';
 
 const App = () => (
   <Router>
@@ -13,6 +15,7 @@ const App = () => (
       <Navbar />
       <Wrapper>
         <Route exact path="/" component={Login} />
+        <Route exact path="/calendar" component={Calendar} />
         <Route exact path="/about" component={About} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/profile" component={Profile} />

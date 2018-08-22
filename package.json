@@ -15,8 +15,11 @@
   "author": "Cary M <carymclaughlin@icloud.com>",
   "license": "ISC",
   "devDependencies": {
+    "classnames": "^2.2.6",
     "concurrently": "^3.5.0",
-    "nodemon": "^1.11.0"
+    "moment": "^2.22.2",
+    "nodemon": "^1.11.0",
+    "react-input-slider": "^4.0.1"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
