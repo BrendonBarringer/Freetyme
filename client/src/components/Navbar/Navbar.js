@@ -23,6 +23,17 @@ const Navbar = props => (
           </Link>
         </li>
         <li
+          className={            
+            window.location.pathname === "/calendar"
+              ? "nav-item active"
+              : "nav-item"
+          }
+        >
+          <Link to="/calendar" className="nav-link">
+            Calendar
+          </Link>
+        </li>
+        <li
           className={
             window.location.pathname === "/profile"
               ? "nav-item active"
