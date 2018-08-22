@@ -7,13 +7,18 @@ import React, { Component } from 'react';
 //  import packageJson from '../package.json';
  import '../components/calendar/less/input-moment.less'; 
  import '../components/calendar/less/app.less';
+ import API from "../utils/API";
+
 class Calendar extends Component {
   state = {
     m: moment(),
     time1:"",
     time2:""
   };
-
+ content ={
+  startTime: this.time1,
+  endTime: this.time2
+ }
   handleChange = m => {
     this.setState({ m });
   };
@@ -29,7 +34,12 @@ class Calendar extends Component {
     this.state.time2 = this.state.m.format('llll');
     this.forceUpdate()
   }
+  
 };
+click2 = () =>{
+    API.addFreetime(this.state.time1, this.state.time2);
+    console.log(this.state.time1, this.state.time2)
+  }
   render() {
     return (
       <div className="app">
@@ -51,7 +61,7 @@ class Calendar extends Component {
       <br></br><div>
          start time <input type="text" value={this.state.time1}/><br></br>
          end time <input type="text" value={this.state.time2}/><br></br>
-        <button>Sends to API</button>
+        <button onClick={this.click2}>Sends to API</button>
         </div>
     </div>
        
