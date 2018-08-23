@@ -153,7 +153,7 @@ class Navbar extends React.Component {
                 About
               </Link>
             </li>
-// <<<<<<< Brendon
+{/* // <<<<<<< Brendon */}
 // =======
             <li
           className={
@@ -166,7 +166,7 @@ class Navbar extends React.Component {
             
           </Link>
         </li>
-// >>>>>>> master
+{/* // >>>>>>> master */}
           </ul>
           <form className="form-inline"> 
             { this.props.loggedIn ? 
