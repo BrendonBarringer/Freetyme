@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import './login.css';
 import Logo from './images/logo.png';
 
-class Login extends Component {
+class Signup extends Component {
   // Setting the initial values of this.state.username and this.state.password
   state = {
     username: "",
@@ -51,13 +51,22 @@ class Login extends Component {
           name="password"
           value={this.state.password}
           onChange={this.handleInputChange}
-        /><br />
-        <button onClick={this.handleFormSubmit}>Submit</button>
-        <p>New to freetyme? <a href="#"> Create an account</a></p>
+        />
+        <input
+          type="password"
+          placeholder=" Confirm Password"
+          name="password"
+          value={this.state.password}
+          onChange={this.handleInputChange}
+        />
+        
+        <br />
+        <button onClick={this.handleFormSubmit}>Create Account</button>
+        
       </form>
       </div>
     );
   }
 }
 
-export default Login;
+export default Signup;
