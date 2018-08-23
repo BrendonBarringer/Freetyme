@@ -13,12 +13,15 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+
+
 // Passport stuff
 app.use(require('cookie-parser')()); //
 app.use(require('morgan')('combined'));
 require('./passport-init')(app);
 
 // Define API routes here
+app.use(require("./routes/api/freetimeRoutes"));
 
 // Send every other request to the React app
 // Define any API routes before this runs
