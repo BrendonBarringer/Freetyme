@@ -1,14 +1,19 @@
 //This is the login page from 20 react 01 .. We don't need to use it .. 
 import React, { Component } from "react";
+// <<<<<<< gary
 import './login.css';
 import Logo from './images/logo.png';
+// =======
+import authUtil from "../utils/authUtil";
+// >>>>>>> master
 
 class Login extends Component {
   // Setting the initial values of this.state.username and this.state.password
   state = {
-    username: "",
-    password: ""
+    username : "",
+    password : ""
   };
+  loginCB = null;
 
   // handle any changes to the input fields
   handleInputChange = event => {
@@ -24,11 +29,23 @@ class Login extends Component {
   // When the form is submitted, prevent the default event and alert the username and password
   handleFormSubmit = event => {
     event.preventDefault();
-    alert(`Username: ${this.state.username}\nPassword: ${this.state.password}`);
+    // alert(`Username: ${this.state.username}\nPassword: ${this.state.password}`);
+    authUtil.login(this.state.username, this.state.password, this.handleLoginCB);
     this.setState({ username: "", password: "" });
   };
 
-  render() {
+  // Callback for login
+  handleLoginCB = (loggedIn, username) => {
+    // Don't setState here. We want it to stay cleared.
+    this.loginCB(loggedIn, username);
+
+    // If successful login. Redirect to About page
+    if (loggedIn)
+      window.location.href = "/about";
+  }
+
+  render(props) {
+    this.loginCB = this.props.loginCB;
     return (
       <div>
       <div id="logo">                

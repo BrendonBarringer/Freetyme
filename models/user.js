@@ -8,6 +8,7 @@ module.exports = function(sequelize, DataTypes) {
   
     User.associate = function(models) {
         // Add relationships here
+        User.hasMany(models.FreeTime)
     };
 
     User.prototype.validPassword = function(password) {
@@ -20,3 +21,5 @@ module.exports = function(sequelize, DataTypes) {
   
     return User;
   };
+
+
