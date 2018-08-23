@@ -1,5 +1,3 @@
-User = require("./user");
-
 module.exports = (sequelize, DataTypes) => {
     const FreeTime = sequelize.define('FreeTime', {
         startTime: DataTypes.DATE,
@@ -10,4 +8,4 @@ module.exports = (sequelize, DataTypes) => {
         FreeTime.belongsTo(models.User)
     }
     return FreeTime
-}
+};
