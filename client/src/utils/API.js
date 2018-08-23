@@ -1,6 +1,11 @@
 import axios from "axios";
 
 export default {
+
+  removeFreetime: function (id) {
+
+  }
+
 addFreetime: function(time1, time2){
     axios.post(`/api/freetime`,{
       startTime: time1,
@@ -11,14 +16,11 @@ addFreetime: function(time1, time2){
     .catch(function(err) {
       console.log(err);
     });
-  }
 };
-
-
-axios.get('/api/freetime')
-  .then((res) => {
-    console.log(res)
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// axios.get('/api/freetime')
+//   .then((res) => {
+//     console.log(res)
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });

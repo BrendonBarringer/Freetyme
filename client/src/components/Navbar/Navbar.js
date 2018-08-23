@@ -157,6 +157,18 @@ class Navbar extends React.Component {
 // =======
             <li
           className={
+            window.location.pathname === "/discover"
+              ? "nav-item active"
+              : "nav-item"
+          }
+        >
+          <Link to="/discover" className="nav-link">
+            Discover
+          </Link>
+        </li>
+        <li
+          className={
+            // window.location.pathname === "/about"
             window.location.pathname === "/signup"
               ? "nav-item active"
               : "nav-item"
