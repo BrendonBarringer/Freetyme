@@ -41,6 +41,7 @@ class App extends React.Component {
             <Route exact path='/logout' render={(props) => <Logout {...props} 
                    loginCB={(loggedIn, username) => this.loginCB(loggedIn, username)} />}/>
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/signup" component={Signup} />
           </Wrapper>
           <Footer />
         </div>
