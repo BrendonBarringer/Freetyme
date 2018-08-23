@@ -24,8 +24,8 @@ router.get('/api/freetime', function (req, res, next) {
 
 router.post('/api/freetime', function(req, res, next){
 FreeTime.create({
-  startTime: req.params.startTime,
-  endTime: req.params.endTime
+  startTime: req.body.startTime,
+  endTime: req.body.endTime
 }).then(newFreeTime => {
   res.json(newFreeTime)
   })
