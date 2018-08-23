@@ -37,7 +37,7 @@ class Signup extends Component {
       </div>
       
       <form id="form">        
-        <h1>Login</h1>
+        <h1>Sign up</h1>
         <input
           type="text"
           placeholder="  username"

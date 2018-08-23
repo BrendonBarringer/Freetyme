@@ -5,6 +5,7 @@ import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
+import Navbar from '../components/Navbar';
 
 
 
@@ -37,6 +38,7 @@ class About extends Component {
 render(){
     return(
   <div>
+    <Navbar loggedIn={this.state.loggedIn} username={this.state.username} />
     <Hero backgroundImage="https://images.stockfreeimages.com/2181/sfi226w/21811173.jpg">
       <h1>FREETYME</h1>
       <h2>WELCOME TO FREETYME!</h2>
