@@ -5,6 +5,7 @@ import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
+import Navbar from '../components/Navbar';
 
 
 class About extends Component {
@@ -17,6 +18,7 @@ class About extends Component {
   handleInputChange = event => {
     // Pull the name and value properties off of the event.target (the element which triggered the event)
     const { name, value } = event.target;
+
 
     // Set the state for the appropriate input field
     this.setState({
@@ -57,6 +59,7 @@ class About extends Component {
           </p>
               <p>
                 This will help climbers spend more time scaling rock and less time finding belayers.
+
           </p>
               <p>
                 Getting started is easy! Create an account, select your available times in our calendar and get matched

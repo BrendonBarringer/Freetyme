@@ -4,6 +4,7 @@ import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
+import Navbar from '../components/Navbar';
 
 class Profile extends Component {
     // Setting the initial values of this.state.username and this.state.password
@@ -31,9 +32,12 @@ class Profile extends Component {
 
   
   render(){
-      return(
+      return(        
     <div>
+
+       <Navbar loggedIn={this.state.loggedIn} username={this.state.username} />
       <Hero backgroundImage="https://www.azernews.az/media/pictures/climbing.jpg">
+
         <h1>FREETYME</h1>
         <h2>Profile PAGE</h2>
       </Hero>
