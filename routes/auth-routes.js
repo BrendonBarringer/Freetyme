@@ -3,6 +3,11 @@ const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn
 
 module.exports = function(passport) {
 
+	router.get("/auth/is-logged-in", function(req, res) {
+		// if (!req.isAuthenticated || !req.isAuthenticated())
+		res.json({success:(req.user? "Yes":"No"), user:req.user});
+	});
+
   // GET "/auth/login"
 	router.get(
 		'/auth/login',
@@ -30,6 +35,18 @@ module.exports = function(passport) {
 		}
 	)
 
+  // GET "/auth/logout"
+	router.get(
+		'/auth/logout',
+		function(req, res) { 
+			const old_user=req.user;
+			console.log("logout");
+			console.log(req);
+			req.logout();
+			res.json({success:"Yes"});
+		}
+	);
+
   // GET "/auth/testuser"
 	//use this route to test the user
 	router.get(
@@ -41,8 +58,9 @@ module.exports = function(passport) {
 				res.json({success:(req.user? "Yes":"No"), user:req.user});
 				console.log("Done getting test user");
 		}
-  );
-  
+	);
+
+	
   // GET "/auth/testmiddleware"
 	router.get(
 		"/auth/testmiddleware",
@@ -56,16 +74,6 @@ module.exports = function(passport) {
 		(req,res) => { 
 			console.log("testmiddleware: LOGGED IN"); 
 			res.send("You are logged in with user " + req.user.username);
-		}
-	);
-
-  // GET "/auth/logout"
-	router.get(
-		'/auth/logout',
-		function(req, res) { 
-			const old_user=req.user;
-			req.logout();
-			res.json({success:(req.user? "No":"Yes"), user:req.user, "old_user":old_user});
 		}
 	);
 
