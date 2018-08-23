@@ -1,19 +1,14 @@
 //This is the login page from 20 react 01 .. We don't need to use it .. 
 import React, { Component } from "react";
-// <<<<<<< gary
 import './login.css';
 import Logo from './images/logo.png';
-// =======
-import authUtil from "../utils/authUtil";
-// >>>>>>> master
 
-class Login extends Component {
+class Signup extends Component {
   // Setting the initial values of this.state.username and this.state.password
   state = {
-    username : "",
-    password : ""
+    username: "",
+    password: ""
   };
-  loginCB = null;
 
   // handle any changes to the input fields
   handleInputChange = event => {
@@ -29,23 +24,11 @@ class Login extends Component {
   // When the form is submitted, prevent the default event and alert the username and password
   handleFormSubmit = event => {
     event.preventDefault();
-    // alert(`Username: ${this.state.username}\nPassword: ${this.state.password}`);
-    authUtil.login(this.state.username, this.state.password, this.handleLoginCB);
+    alert(`Username: ${this.state.username}\nPassword: ${this.state.password}`);
     this.setState({ username: "", password: "" });
   };
 
-  // Callback for login
-  handleLoginCB = (loggedIn, username) => {
-    // Don't setState here. We want it to stay cleared.
-    this.loginCB(loggedIn, username);
-
-    // If successful login. Redirect to About page
-    if (loggedIn)
-      window.location.href = "/about";
-  }
-
-  render(props) {
-    this.loginCB = this.props.loginCB;
+  render() {
     return (
       <div>
       <div id="logo">                
@@ -68,13 +51,22 @@ class Login extends Component {
           name="password"
           value={this.state.password}
           onChange={this.handleInputChange}
-        /><br />
-        <button onClick={this.handleFormSubmit}>Submit</button>
-        <p>New to freetyme? <a href="#"> Create an account</a></p>
+        />
+        <input
+          type="password"
+          placeholder=" Confirm Password"
+          name="password"
+          value={this.state.password}
+          onChange={this.handleInputChange}
+        />
+        
+        <br />
+        <button onClick={this.handleFormSubmit}>Create Account</button>
+        
       </form>
       </div>
     );
   }
 }
 
-export default Login;
+export default Signup;
