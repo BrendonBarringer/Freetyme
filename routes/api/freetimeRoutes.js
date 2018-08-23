@@ -6,29 +6,31 @@ const FreeTime = require('../../models/freetime');
 
 
 
-router.get('/api/schedule', function(req, res, err){
-  if(!session.user){
+router.get('/api/schedule', function (req, res, next) {
+  if (!session.user) {
     res.redirect('/login');
   }
   else {
-   FreeTime.findAll({
-       where: {
-           User_id: req.user.User_id
-       }
-    
-   }).then( matches => {
-       res.json(matches)
-   }).catch(err)
+    FreeTime.findAll({
+      where: {
+        User_id: req.user.User_id
+      }
+
+    }).then(matches => {
+      res.json(matches)
+    }).catch(next)
   }
 })
 
-router.post('/api/schedule', function(req, res){
-  models.FreeTime.create({
-    content: req.body.content,
-    UserID: session.user.dataValues.id
-  }).then(function (){
-    res.redirect('/');
+router.post('/api/schedule', function(req, res, next){
+FreeTime.create({
+  startTime: req.params.startTime,
+  endTime: req.params.endTime
+}).then(newFreeTime => {
+  res.json(newFreeTime)
   })
+  .catch(next)
 })
+
 
 module.exports = router;

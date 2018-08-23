@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     FreeTime.associate = function (models) {
-        // FreeTime.belongsTo(models.User)
+        FreeTime.belongsTo(models.User)
     }
     return FreeTime
 }

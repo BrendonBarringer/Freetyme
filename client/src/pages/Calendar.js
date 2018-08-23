@@ -26,12 +26,12 @@ class Calendar extends Component {
   handleSave = () => {
     console.log('saved', this.state.m.format('llll'));
     if(this.state.time1 === ""){
-      this.state.time1 = this.state.m.format('llll');
+      this.setState({time1: this.state.m.format('llll')});
       this.forceUpdate()
     }
   
   else{
-    this.state.time2 = this.state.m.format('llll');
+    this.setState({time2: this.state.m.format('llll')});
     this.forceUpdate()
   }
   
