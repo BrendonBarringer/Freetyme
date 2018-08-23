@@ -10,4 +10,6 @@ module.exports = (sequelize, DataTypes) => {
         FreeTime.belongsTo(models.User)
     }
     return FreeTime
-}
+
+};
+
