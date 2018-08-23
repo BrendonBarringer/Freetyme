@@ -4,9 +4,9 @@ export default {
 
   removeFreetime: function (id) {
 
-  }
+  },
 
-addFreetime: function(time1, time2){
+  addFreetime: function(time1, time2){
     axios.post(`/api/freetime`,{
       startTime: time1,
       endTime: time2
@@ -16,7 +16,10 @@ addFreetime: function(time1, time2){
     .catch(function(err) {
       console.log(err);
     });
-};
+  }
+  
+}
+
 // axios.get('/api/freetime')
 //   .then((res) => {
 //     console.log(res)
