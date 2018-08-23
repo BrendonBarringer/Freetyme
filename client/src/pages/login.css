@@ -51,7 +51,7 @@
             color:blue;
         }
         body {
-            border: 2px solid #009EFF;
-            height: 100vh;
+            /* border: 2px solid #009EFF; */
+            /* height: 100vh; */
             font-family: 'Roboto', sans-serif;
         }

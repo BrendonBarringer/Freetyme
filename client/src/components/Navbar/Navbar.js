@@ -148,7 +148,6 @@ class Navbar extends React.Component {
             </li>
             <li
           className={
-<<<<<<< HEAD
             window.location.pathname === "/discover"
               ? "nav-item active"
               : "nav-item"
@@ -160,10 +159,8 @@ class Navbar extends React.Component {
         </li>
         <li
           className={
-            window.location.pathname === "/about"
-=======
+            // window.location.pathname === "/about"
             window.location.pathname === "/signup"
->>>>>>> e135bf337280a438c2b4e46adb1893a29220ee50
               ? "nav-item active"
               : "nav-item"
           }
