@@ -1,17 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import Logo from '../../pages/images/logo.png';
+
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
+
 class Navbar extends React.Component {
 
   render (props) {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light topnav">
         <Link className="navbar-brand" to="/">
-          FREETYME!!!!!
+        <img src= {Logo} className="logo" />
         </Link>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1"
+        aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i class="fa fa-bars fa-1x"></i></span>Menu</button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent1">
           <ul className="navbar-nav mr-auto">
           { 
               this.props.loggedIn ? (
@@ -79,6 +84,18 @@ class Navbar extends React.Component {
             </li>
             <li
           className={
+            window.location.pathname === "/discover"
+              ? "nav-item active"
+              : "nav-item"
+          }
+        >
+          <Link to="/discover" className="nav-link">
+            Discover
+          </Link>
+        </li>
+        <li
+          className={
+            // window.location.pathname === "/about"
             window.location.pathname === "/signup"
               ? "nav-item active"
               : "nav-item"
@@ -88,6 +105,7 @@ class Navbar extends React.Component {
             
           </Link>
         </li>
+
           </ul>
           <form className="form-inline"> 
             { this.props.loggedIn ? 
@@ -95,6 +113,7 @@ class Navbar extends React.Component {
                 ( <span className="navbar-text"></span> )
             }
           </form>
+         
         </div>
       </nav>
     );
