@@ -6,7 +6,7 @@ const FreeTime = require('../../models/freetime');
 
 
 
-router.get('/api/schedule', function (req, res, next) {
+router.get('/api/freetime', function (req, res, next) {
   if (!session.user) {
     res.redirect('/login');
   }
@@ -22,7 +22,7 @@ router.get('/api/schedule', function (req, res, next) {
   }
 })
 
-router.post('/api/schedule', function(req, res, next){
+router.post('/api/freetime', function(req, res, next){
 FreeTime.create({
   startTime: req.params.startTime,
   endTime: req.params.endTime
