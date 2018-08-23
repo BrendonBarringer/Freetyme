@@ -146,6 +146,20 @@ class Navbar extends React.Component {
                 About
               </Link>
             </li>
+// <<<<<<< Brendon
+// =======
+            <li
+          className={
+            window.location.pathname === "/signup"
+              ? "nav-item active"
+              : "nav-item"
+          }
+        >
+          <Link to="/signup" className="nav-link">
+            
+          </Link>
+        </li>
+// >>>>>>> master
           </ul>
           <form className="form-inline"> 
             { this.props.loggedIn ? 
