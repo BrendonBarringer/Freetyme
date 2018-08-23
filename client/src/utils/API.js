@@ -2,10 +2,23 @@ import axios from "axios";
 
 export default {
 addFreetime: function(time1, time2){
-    console.log("help!!!")
-    axios.post(`/api/schedule?startTime=${time1}&endTime=${time2}`, function(req, res){
-    
-      res.redirect("/calendar")
+    axios.post(`/api/freetime`,{
+      startTime: time1,
+      endTime: time2
+    }).then(function(response) {
+      console.log(response);
     })
+    .catch(function(err) {
+      console.log(err);
+    });
   }
 };
+
+
+axios.get('/api/freetime')
+  .then((res) => {
+    console.log(res)
+  })
+  .catch((err) => {
+    console.log(err);
+  });

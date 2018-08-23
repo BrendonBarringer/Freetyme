@@ -153,6 +153,8 @@ class Navbar extends React.Component {
                 About
               </Link>
             </li>
+// <<<<<<< Brendon
+// =======
             <li
           className={
             window.location.pathname === "/signup"
@@ -164,6 +166,7 @@ class Navbar extends React.Component {
             
           </Link>
         </li>
+// >>>>>>> master
           </ul>
           <form className="form-inline"> 
             { this.props.loggedIn ? 
