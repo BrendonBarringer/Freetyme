@@ -31,7 +31,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <Navbar loggedIn={this.state.loggedIn} username={this.state.username} />
+          {/* <Navbar loggedIn={this.state.loggedIn} username={this.state.username} /> */}
           <Wrapper>
             <Route exact path="/" component={About} />
             <Route exact path="/calendar" component={Calendar} />
@@ -41,12 +41,12 @@ class App extends React.Component {
             <Route exact path='/logout' render={(props) => <Logout {...props} 
                    loginCB={(loggedIn, username) => this.loginCB(loggedIn, username)} />}/>
             <Route exact path="/profile" component={Profile} />
-// <<<<<<< Brendon
-// =======
+{/* // <<<<<<< Brendon */}
+{/* // ======= */}
             <Route exact path="/signup" component={Signup} />
-// >>>>>>> master
+{/* // >>>>>>> master */}
           </Wrapper>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </Router>
     );

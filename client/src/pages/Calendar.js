@@ -8,6 +8,7 @@ import React, { Component } from 'react';
  import '../components/calendar/less/input-moment.less'; 
  import '../components/calendar/less/app.less';
  import API from "../utils/API";
+ import Navbar from '../components/Navbar';
 
 class Calendar extends Component {
   state = {
@@ -42,7 +43,10 @@ click2 = () =>{
   }
   render() {
     return (
+      <div>
+        <Navbar loggedIn={this.state.loggedIn} username={this.state.username} />
       <div className="app">
+      
       {/* <h1>
         {packageJson.name}: {packageJson.version}
       </h1>
@@ -63,6 +67,7 @@ click2 = () =>{
          end time <input type="text" value={this.state.time2}/><br></br>
         <button onClick={this.click2}>Sends to API</button>
         </div>
+    </div>
     </div>
        
     );

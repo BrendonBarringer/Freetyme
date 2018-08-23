@@ -1,3 +1,20 @@
 nav.navbar.navbar-default {
   margin-bottom: 0;
 }
+/* Style the navigation menu */
+
+.logo {
+  width: 70%;
+}
+.navbar-toggler {
+  background-color: #009EFF;
+}
+.navbar-toggler.toggler-example {
+  margin-right: 10px;
+  cursor: pointer;
+  color:white;
+  border: 1px solid #009EFF;
+}
+.fa-1x {
+  font-size: 1rem;
+}
