@@ -1,13 +1,8 @@
 const router = require("express").Router();
+const freetimeRoutes = require('./freetimeRoutes')
 
 //  ADD API ROUTES HERE
-// const articleRoutes = require("./articles");
-// const nytRoutes = require("./nyt");
+// router.use("/api/freetime", freetimeRoutes);
 
-// // Article routes
-// router.use("/articles", articleRoutes);
-
-// // nyt routes
-// router.use("/nyt", nytRoutes);
 
 module.exports = router;

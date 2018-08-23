@@ -1,5 +1,5 @@
 let passport      = require('passport');
-let session       = require("express-session")({ secret: "cats", resave: false, saveUninitialized: false  });
+let session       = require("express-session")({ secret: "muleskinner", resave: false, saveUninitialized: false  });
 
 let db = require ('./models')
 
@@ -23,7 +23,7 @@ module.exports = function(expressApp) {
   //Initialize authentication specific routes. This needs to be changed to match your configs
   expressApp.use(
     require("./routes/auth-routes")(passport)
-    )
+  );
 
   return passport;
 }
@@ -85,7 +85,7 @@ const deserializeUser = function(savedId, done) {
     db.User.findOne({ 
         where:{ id: savedId },
         attributes: {
-          exclude: ["password"] //user has the password in it, let's filter that out...for...security.......yes, I know we saved the password in db in plaintext...get off my back
+          exclude: ["hash"] 
         }
     }) 
     .then(function(user) {
