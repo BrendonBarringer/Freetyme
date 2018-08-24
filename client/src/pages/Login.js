@@ -69,7 +69,7 @@ class Login extends Component {
           onChange={this.handleInputChange}
         /><br />
         <button onClick={this.handleFormSubmit}>Submit</button>
-        <p>New to freetyme? <a href="#"> Create an account</a></p>
+        <p>New to freetyme? <a href="/signup"> Create an account</a></p>
       </form>
       </div>
     );
