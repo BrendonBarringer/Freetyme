@@ -21,6 +21,7 @@ router.get('/api/freetime', function (req, res, next) {
 router.post('/api/freetime', function(req, res, next){
   // console.log(req.body);
 db.FreeTime.create({
+  // UserId: req.body.UserId,
   startTime: req.body.startTime,
   endTime: req.body.endTime
 }).then(newFreeTime => {
