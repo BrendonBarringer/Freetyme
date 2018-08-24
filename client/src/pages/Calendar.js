@@ -5,8 +5,8 @@ import React, { Component } from 'react';
  import InputMoment from '../components/calendar/input-moment';
  import moment from 'moment';
 //  import packageJson from '../package.json';
- import '../components/calendar/less/input-moment.less'; 
- import '../components/calendar/less/app.less';
+//  import '../components/calendar/css'; 
+//  import '../components/calendar/less/app.less';
  import API from "../utils/API";
  import Navbar from '../components/Navbar';
 
@@ -37,6 +37,17 @@ class Calendar extends Component {
   }
   
 };
+resetStart = () => {
+  console.log('reset');
+    this.setState({time1: ""});
+    this.forceUpdate()
+}
+resetEnd = () => {
+  console.log('reset');
+    this.setState({time2: ""});
+    this.forceUpdate()
+
+};
 click2 = () =>{
     API.addFreetime(this.state.time1, this.state.time2);
     console.log(this.state.time1, this.state.time2)
@@ -45,12 +56,9 @@ click2 = () =>{
     return (
       <div>
         <Navbar loggedIn={this.state.loggedIn} username={this.state.username} />
-      <div className="app">
-      
-      {/* <h1>
-        {packageJson.name}: {packageJson.version}
-      </h1>
-      <h2>{packageJson.description}</h2> */}
+      <div className="app">      
+      <h6>When are you free?</h6>
+      <p>Select a start and end date/time</p>
       <form>
         <div className="input">
           <input type="text" value={this.state.m.format('llll')} readOnly />
@@ -63,9 +71,9 @@ click2 = () =>{
         />
       </form>
       <br></br><div>
-         start time <input type="text" value={this.state.time1}/><br></br>
-         end time <input type="text" value={this.state.time2}/><br></br>
-        <button onClick={this.click2}>Sends to API</button>
+         <button onClick={this.resetStart}>Reset Start Time</button> <br></br><input placeholder="Start Time" type="text" value={this.state.time1}/><br></br>
+         <button onClick={this.resetEnd}>Reset End Time </button><br></br> <input placeholder="End Time" type="text" value={this.state.time2}/><br></br>
+        <button onClick={this.click2}>Save Your FreeTyme</button>
         </div>
     </div>
     </div>

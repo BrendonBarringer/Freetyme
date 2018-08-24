@@ -8,23 +8,23 @@ import Logo from '../../pages/images/logo.png';
 
 class Navbar extends React.Component {
 
-  render (props) {
+  render(props) {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light topnav">
         <Link className="navbar-brand" to="/">
-        <img src= {Logo} className="logo" />
+          <img src={Logo} className="logo" />
         </Link>
         <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1"
-        aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i class="fa fa-bars fa-1x"></i></span>Menu</button>
+          aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i class="fa fa-bars fa-1x"></i></span>Menu</button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent1">
           <ul className="navbar-nav mr-auto">
-          { 
+            {
               this.props.loggedIn ? (
                 // Logout Page
                 <li
                   className={
                     window.location.pathname === "/" ||
-                    window.location.pathname === "/login"
+                      window.location.pathname === "/login"
                       ? "nav-item active"
                       : "nav-item"
                   }
@@ -34,23 +34,23 @@ class Navbar extends React.Component {
                   </Link>
                 </li>
               ) : (
-                // Login Page
-                <li
-                  className={
-                    window.location.pathname === "/" ||
-                    window.location.pathname === "/logout"
-                      ? "nav-item active"
-                      : "nav-item"
-                  }
-                >
-                  <Link to="/login" className="nav-link">
-                    Login
+                  // Login Page
+                  <li
+                    className={
+                      window.location.pathname === "/" ||
+                        window.location.pathname === "/logout"
+                        ? "nav-item active"
+                        : "nav-item"
+                    }
+                  >
+                    <Link to="/login" className="nav-link">
+                      Login
                   </Link>
-                </li>
-              )
+                  </li>
+                )
             }
             <li
-              className={            
+              className={
                 window.location.pathname === "/calendar"
                   ? "nav-item active"
                   : "nav-item"
@@ -81,43 +81,43 @@ class Navbar extends React.Component {
               <Link to="/about" className="nav-link">
                 About
               </Link>
-            </li>
-            <li
-          className={
-            window.location.pathname === "/discover"
-              ? "nav-item active"
-              : "nav-item"
-          }
-        >
-          <Link to="/discover" className="nav-link">
-            Discover
+              </li>
+              <li
+                className={
+                  window.location.pathname === "/discover"
+                    ? "nav-item active"
+                    : "nav-item"
+                }
+              >
+                <Link to="/discover" className="nav-link">
+                  Discover
           </Link>
-        </li>
-        <li
-          className={
-            // window.location.pathname === "/about"
-            window.location.pathname === "/signup"
-              ? "nav-item active"
-              : "nav-item"
-          }
-        >
-          <Link to="/signup" className="nav-link">
-            
-          </Link>
-        </li>
+              </li>
+              <li
+                className={
+                  // window.location.pathname === "/about"
+                  window.location.pathname === "/signup"
+                    ? "nav-item active"
+                    : "nav-item"
+                }
+              >
+                <Link to="/signup" className="nav-link">
 
+                </Link>
+              </li>
+  
           </ul>
-          <form className="form-inline"> 
-            { this.props.loggedIn ? 
-                ( <span className="navbar-text">Hello {this.props.username}</span>) : 
-                ( <span className="navbar-text"></span> )
-            }
-          </form>
+            <form className="form-inline">
+              {this.props.loggedIn ?
+                (<span className="navbar-text">Hello {this.props.username}</span>) :
+                (<span className="navbar-text"></span>)
+              }
+            </form>
          
         </div>
       </nav>
-    );
-  }
-}
-
-export default Navbar;
+        );
+      }
+    }
+    
+    export default Navbar;
