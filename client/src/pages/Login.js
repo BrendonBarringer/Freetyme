@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 // <<<<<<< gary
 import './login.css';
-import Logo from './images/logo.png';
+import Logo from './images/logo2.png';
 // =======
 import authUtil from "../utils/authUtil";
 // >>>>>>> master
@@ -56,6 +56,7 @@ class Login extends Component {
       <form id="form">        
         <h1>Login</h1>
         <input
+          className = "formInput"
           type="text"
           placeholder="  username"
           name="username"
@@ -63,6 +64,7 @@ class Login extends Component {
           onChange={this.handleInputChange}
         />
         <input
+          className = "formInput"
           type="password"
           placeholder="  Password"
           name="password"

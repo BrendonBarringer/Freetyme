@@ -1,0 +1,34 @@
+.u-slider-time {
+  position: relative;
+  display: inline-block;
+  background-color: #dfe0e4;
+  border-radius: 3px;
+  height: 4px;
+  width: 100%;
+  cursor: pointer;
+}
+.u-slider-time .value {
+  position: absolute;
+  background-color: #009EFF;
+  border-radius: 3px;
+  top: 0;
+  height: 100%;
+}
+.u-slider-time .handle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+}
+.u-slider-time .handle:after {
+  position: relative;
+  display: block;
+  content: '';
+  top: -10px;
+  left: -12px;
+  width: 24px;
+  height: 24px;
+  background-color: #fff;
+  border: 3px solid #009EFF;
+  border-radius: 50%;
+  cursor: pointer;
+}

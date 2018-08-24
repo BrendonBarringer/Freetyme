@@ -16,13 +16,13 @@
             text-align: center;
             color: white;
         }
-        input {
+        .formInput {
             margin-bottom: 8px;
             border-radius: 6px;
             border: 1px solid lightgray;
             box-shadow: 1px 1px 2px lightgray;
         }
-        input:hover {
+        .formInput:hover {
             background-color: lightcyan;
         }
         button {
@@ -53,4 +53,24 @@
         body {
 
             font-family: 'Roboto', sans-serif;
+        }
+        .app {
+            margin-top: 5px;
+            text-align: center;
+            width: 100%;
+        }
+        .app h6{
+            color: #009EFF;
+        }
+
+        /* Desktop media query */
+        @media only screen and (min-width: 768px) {
+            .formInput {
+                margin-left: 8px;
+                padding: 5px;
+            }
+            button {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
         }

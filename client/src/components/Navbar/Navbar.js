@@ -81,7 +81,7 @@ class Navbar extends React.Component {
               <Link to="/about" className="nav-link">
                 About
               </Link>
-            </li>
+
             <li
           className={
             window.location.pathname === "/discover"
