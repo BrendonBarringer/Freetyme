@@ -1,6 +1,6 @@
 //profile page will display the users entries, and matches from other profiles?
 import React, { Component } from "react";
-import API from "../utils/API";
+import API from "../../utils/API";
 
 
 class Freetime extends Component {
