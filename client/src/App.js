@@ -33,7 +33,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <Navbar loggedIn={this.state.loggedIn} username={this.state.username} />
+          {/* <Navbar loggedIn={this.state.loggedIn} username={this.state.username} /> */}
           <Wrapper>
             <Route exact path="/" component={About} />
             <Route exact path="/calendar" component={Calendar} />

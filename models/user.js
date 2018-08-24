@@ -10,6 +10,7 @@ module.exports = function(sequelize, DataTypes) {
     User.associate = function(models) {
         // Add relationships here
         User.hasMany(models.FreeTime)
+        User.belongsToMany(models.Meeting, { through: 'UserMeeting' });
     };
 
     User.prototype.validPassword = function(password) {
