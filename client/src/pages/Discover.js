@@ -1,7 +1,7 @@
 //profile page will display the users entries, and matches from other profiles?
 import React, { Component } from "react";
 import Card from "../components/Card";
-import Freetime from "./Freetime";
+import Freetime from "../components/Freetime/Freetime";
 import Navbar from '../components/Navbar';
 
 class Discover extends Component {
@@ -9,7 +9,7 @@ class Discover extends Component {
 
         return (
             <div>
-                 <Navbar loggedIn={this.state.loggedIn} username={this.state.username} />
+                 {/* <Navbar loggedIn={this.state.loggedIn} username={this.state.username} /> */}
                  
                 <Freetime
                     name={"no@no.com"}
