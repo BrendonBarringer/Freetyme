@@ -9,7 +9,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import Calendar from "./pages/Calendar";
-import './components/calendar/less/input-moment.less';
+// import './components/calendar/less/input-moment.less';
+
 import authUtil from "./utils/authUtil";
 
 class App extends React.Component {

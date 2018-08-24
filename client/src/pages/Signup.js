@@ -1,7 +1,7 @@
 //This is the login page from 20 react 01 .. We don't need to use it .. 
 import React, { Component } from "react";
 import './login.css';
-import Logo from './images/logo.png';
+import Logo from './images/logo2.png';
 
 class Signup extends Component {
   // Setting the initial values of this.state.username and this.state.password
@@ -39,13 +39,15 @@ class Signup extends Component {
       <form id="form">        
         <h1>Sign up</h1>
         <input
-          type="text"
-          placeholder="  username"
+          className = "formInput"
+          type="email"
+          placeholder="  Email"
           name="username"
           value={this.state.username}
           onChange={this.handleInputChange}
         />
         <input
+          className = "formInput"
           type="password"
           placeholder="  Password"
           name="password"
@@ -53,6 +55,7 @@ class Signup extends Component {
           onChange={this.handleInputChange}
         />
         <input
+          className = "formInput"
           type="password"
           placeholder=" Confirm Password"
           name="password"

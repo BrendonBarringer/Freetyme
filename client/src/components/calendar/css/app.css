@@ -1,0 +1,9 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font: 87.5%/1.5em 'Lato', sans-serif;
+}

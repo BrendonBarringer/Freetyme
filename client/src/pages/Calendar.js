@@ -5,8 +5,8 @@ import React, { Component } from 'react';
  import InputMoment from '../components/calendar/input-moment';
  import moment from 'moment';
 //  import packageJson from '../package.json';
- import '../components/calendar/less/input-moment.less'; 
- import '../components/calendar/less/app.less';
+//  import '../components/calendar/css'; 
+//  import '../components/calendar/less/app.less';
  import API from "../utils/API";
  import Navbar from '../components/Navbar';
 
@@ -45,12 +45,9 @@ click2 = () =>{
     return (
       <div>
         <Navbar loggedIn={this.state.loggedIn} username={this.state.username} />
-      <div className="app">
-      
-      {/* <h1>
-        {packageJson.name}: {packageJson.version}
-      </h1>
-      <h2>{packageJson.description}</h2> */}
+      <div className="app">      
+      <h6>When are you free?</h6>
+      <p>Select a start and end date/time</p>
       <form>
         <div className="input">
           <input type="text" value={this.state.m.format('llll')} readOnly />

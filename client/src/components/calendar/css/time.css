@@ -1,0 +1,38 @@
+.m-time {
+  color: #ffffff;
+  padding-top: 50px;
+}
+.m-time .showtime {
+  text-align: center;
+}
+.m-time .separater {
+  display: inline-block;
+  font-size: 32px;
+  font-weight: bold;
+  color: #009EFF;
+  width: 32px;
+  height: 65px;
+  line-height: 65px;
+  text-align: center;
+}
+.m-time .time-text {
+  position: relative;
+  left: -10px;
+  font-size: 15px;
+  color: #009EFF;
+  margin-top: 7px;
+  margin-bottom: 10px;
+}
+.m-time .sliders {
+  padding: 0 10px;
+}
+.m-time .time {
+  width: 65px;
+  height: 65px;
+  display: inline-block;
+  font-size: 38px;
+  line-height: 65px;
+  background-color: #009EFF;
+  border-radius: 3px;
+  text-align: center;
+}

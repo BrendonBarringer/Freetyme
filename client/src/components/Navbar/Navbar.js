@@ -154,7 +154,7 @@ class Navbar extends React.Component {
               </Link>
             </li>
 {/* // <<<<<<< Brendon */}
-// =======
+
             <li
           className={
             window.location.pathname === "/signup"
