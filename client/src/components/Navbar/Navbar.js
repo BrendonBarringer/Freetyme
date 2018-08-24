@@ -81,43 +81,58 @@ class Navbar extends React.Component {
               <Link to="/about" className="nav-link">
                 About
               </Link>
-              </li>
-              <li
-                className={
-                  window.location.pathname === "/discover"
-                    ? "nav-item active"
-                    : "nav-item"
-                }
-              >
-                <Link to="/discover" className="nav-link">
-                  Discover
-          </Link>
-              </li>
-              <li
-                className={
-                  // window.location.pathname === "/about"
-                  window.location.pathname === "/signup"
-                    ? "nav-item active"
-                    : "nav-item"
-                }
-              >
-                <Link to="/signup" className="nav-link">
-
-                </Link>
-              </li>
-  
-          </ul>
-            <form className="form-inline">
-              {this.props.loggedIn ?
-                (<span className="navbar-text">Hello {this.props.username}</span>) :
-                (<span className="navbar-text"></span>)
+            </li>
+            <li
+              className={
+                window.location.pathname === "/discover"
+                  ? "nav-item active"
+                  : "nav-item"
               }
-            </form>
-         
+            >
+              <Link to="/discover" className="nav-link">
+                Discover
+          </Link>
+            </li>
+
+            <li
+              className={
+                window.location.pathname === "/freetimelist"
+                  ? "nav-item active"
+                  : "nav-item"
+              }
+            >
+              <Link to="/freetimelist" className="nav-link">
+                Freetime List
+          </Link>
+            </li>
+
+
+
+            <li
+              className={
+                // window.location.pathname === "/about"
+                window.location.pathname === "/signup"
+                  ? "nav-item active"
+                  : "nav-item"
+              }
+            >
+              <Link to="/signup" className="nav-link">
+
+              </Link>
+            </li>
+
+          </ul>
+          <form className="form-inline">
+            {this.props.loggedIn ?
+              (<span className="navbar-text">Hello {this.props.username}</span>) :
+              (<span className="navbar-text"></span>)
+            }
+          </form>
+
         </div>
       </nav>
-        );
-      }
-    }
-    
-    export default Navbar;
+    );
+  }
+}
+
+export default Navbar;

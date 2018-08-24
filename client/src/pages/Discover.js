@@ -9,6 +9,17 @@ class Discover extends Component {
 
         return (
             <div>
+<<<<<<< HEAD
+                
+                <form id="times">
+                    <Freetime
+                        name={"no@no.com"}
+                        startTime={"5:00"}
+                        endTime={"6:00"}
+                        id={"12"}
+                    />
+                </form>
+=======
                  {/* <Navbar loggedIn={this.state.loggedIn} username={this.state.username} /> */}
                  
                 <Freetime
@@ -18,6 +29,7 @@ class Discover extends Component {
                     id={"12"}
                 />
                
+>>>>>>> c79a6aa3bca3de6ce748740a44857599f257566b
 
                 <h1 className="text-center">Who is looking to climb</h1>
                 <h3 className="text-center">
