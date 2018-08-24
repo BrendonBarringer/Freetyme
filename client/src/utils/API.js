@@ -21,10 +21,11 @@ export default {
 
 
 
-  getFreetime: function () {
+  getFreetime: function (callback) {
     axios.get('/api/freetime')
       .then((res) => {
-        console.log(res)
+        console.log(res.data)
+        callback(res.data);
       })
       .catch((err) => {
         console.log(err);

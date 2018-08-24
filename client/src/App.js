@@ -5,6 +5,7 @@ import Logout from "./pages/Logout";
 import About from "./pages/About";
 import Profile from "./pages/Profile";
 import Discover from "./pages/Discover";
+import FreetimeList from "./pages/FreetimeList";
 import Signup from './pages/Signup';
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -33,7 +34,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          {/* <Navbar loggedIn={this.state.loggedIn} username={this.state.username} /> */}
+          
           <Wrapper>
             <Route exact path="/" component={About} />
             <Route exact path="/calendar" component={Calendar} />
@@ -47,6 +48,7 @@ class App extends React.Component {
             <Route exact path="/signup" component={Signup} />
 
             <Route exact path="/discover" component={Discover} />
+            <Route exact path="/freetime" component={FreetimeList} />
 
           </Wrapper>
           {/* <Footer /> */}

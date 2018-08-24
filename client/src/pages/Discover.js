@@ -8,12 +8,15 @@ class Discover extends Component {
 
         return (
             <div>
-                <Freetime
-                    name={"no@no.com"}
-                    startTime={"5:00"}
-                    endTime={"6:00"}
-                    id={"12"}
-                />
+                
+                <form id="times">
+                    <Freetime
+                        name={"no@no.com"}
+                        startTime={"5:00"}
+                        endTime={"6:00"}
+                        id={"12"}
+                    />
+                </form>
 
                 <h1 className="text-center">Who is looking to climb</h1>
                 <h3 className="text-center">
