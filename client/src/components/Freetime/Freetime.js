@@ -5,6 +5,9 @@ import API from "../../utils/API";
 
 class Freetime extends Component {
 
+    componentDidMount = () => {
+    API.getFreetime()
+    }
     // handleInputChange = event => {
     //   // Destructure the name and value properties off of event.target
     //   // Update the appropriate state
