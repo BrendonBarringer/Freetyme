@@ -1,6 +1,8 @@
 //profile page will display the users entries, and matches from other profiles?
 import React, { Component } from "react";
 import API from "../utils/API";
+import Freetime from "../components/Freetime";
+import Navbar from '../components/Navbar';
 
 
 class FreetimeList extends Component {
@@ -34,7 +36,7 @@ class FreetimeList extends Component {
         console.log("did mount")
         API.getFreetime( (result) => {
             console.log("Back from API");
-            // this.setState({ freetimeList: result });
+            this.setState({ freetimeList: result });
         })
     }
 
@@ -43,13 +45,14 @@ class FreetimeList extends Component {
         console.log("render")
         return (
             <div>
+                <Navbar loggedIn={this.state.loggedIn} username={this.state.username} />
                 {
                     this.state.freetimeList.map(item => {
                         return (
-                            <FreetimeList 
+                            <Freetime
                                 name={"tbd"} 
-                                starttime={item.starttime} 
-                                endtime={item.endtime} 
+                                startTime={item.startTime} 
+                                endTime={item.endTime} 
                             />
                         )
                     })
