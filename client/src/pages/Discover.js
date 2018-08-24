@@ -4,7 +4,7 @@ import Card from "../components/Card";
 import Freetime from "./Freetime";
 
 class Discover extends Component {
-    render() {
+    render(props) {
 
         return (
             <div>
