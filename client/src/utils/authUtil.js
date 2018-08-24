@@ -1,4 +1,5 @@
 import axios from "axios";
+import Signup from "../pages/Signup";
 
 class AuthUtil {
   constructor() {
@@ -61,6 +62,18 @@ class AuthUtil {
       cb(false, "");
     });
   }
-}
 
+
+Signup(username, password) {
+  axios.post(`/auth/user`,{
+    username: username,
+    password: password
+  }).then(function (response) {
+    console.log(response);
+  })
+    .catch(function (err) {
+      console.log(err);
+    });
+};
+}
 export default new AuthUtil();
