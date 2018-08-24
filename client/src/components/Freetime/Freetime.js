@@ -5,6 +5,9 @@ import API from "../../utils/API";
 
 class Freetime extends Component {
 
+    componentDidMount = () => {
+    API.getFreetime()
+    }
     // handleInputChange = event => {
     //   // Destructure the name and value properties off of event.target
     //   // Update the appropriate state
@@ -28,6 +31,7 @@ class Freetime extends Component {
         this.id=this.props.id
         return (
             <div>
+                
                 <p>
                     Name: {this.props.name}
                 </p>
@@ -38,6 +42,7 @@ class Freetime extends Component {
                     End Time: {this.props.endTime}
                 </p>
                 <button onClick={this.handleRemove}>Remove</button>
+                
             </div>
         );
     }

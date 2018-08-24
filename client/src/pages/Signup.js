@@ -2,12 +2,15 @@
 import React, { Component } from "react";
 import './login.css';
 import Logo from './images/logo2.png';
+import authUtil from "../utils/authUtil";
+
 
 class Signup extends Component {
   // Setting the initial values of this.state.username and this.state.password
   state = {
     username: "",
-    password: ""
+    password: "",
+    passwordConfirm: "",
   };
 
   // handle any changes to the input fields
@@ -25,6 +28,8 @@ class Signup extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     alert(`Username: ${this.state.username}\nPassword: ${this.state.password}`);
+    authUtil.Signup(this.state.username, this.state.password);
+
     this.setState({ username: "", password: "" });
   };
 
@@ -58,8 +63,8 @@ class Signup extends Component {
           className = "formInput"
           type="password"
           placeholder=" Confirm Password"
-          name="password"
-          value={this.state.password}
+          name="passwordConfirm"
+          value={this.state.passwordConfirm}
           onChange={this.handleInputChange}
         />
         
