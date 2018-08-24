@@ -60,9 +60,9 @@ click2 = () =>{
       <h6>When are you free?</h6>
       <p>Select a start and end date/time</p>
       <form>
-        <div className="input">
+        {/* <div className="input">
           <input type="text" value={this.state.m.format('llll')} readOnly />
-        </div>
+        </div> */}
         <InputMoment
           moment={this.state.m}
           onChange={this.handleChange}
@@ -71,9 +71,9 @@ click2 = () =>{
         />
       </form>
       <br></br><div>
-         <button onClick={this.resetStart}>Reset Start Time</button> <br></br><input placeholder="Start Time" type="text" value={this.state.time1}/><br></br>
-         <button onClick={this.resetEnd}>Reset End Time </button><br></br> <input placeholder="End Time" type="text" value={this.state.time2}/><br></br>
-        <button onClick={this.click2}>Save Your FreeTyme</button>
+         <button id="calendarButton" onClick={this.resetStart}>Reset Start Time</button> <br></br><input placeholder="Start Time" type="text" id="timeInput" value={this.state.time1}/><br></br>
+         <button id="calendarButton" onClick={this.resetEnd}>Reset End Time </button><br></br> <input placeholder="End Time" type="text" id="timeInput" value={this.state.time2}/><br></br>
+        <button id="calendarButton" onClick={this.click2}>Save Your FreeTyme</button>
         </div>
     </div>
     </div>
