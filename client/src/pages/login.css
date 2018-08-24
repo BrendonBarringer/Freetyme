@@ -58,9 +58,27 @@
             margin-top: 5px;
             text-align: center;
             width: 100%;
+            
         }
         .app h6{
             color: #009EFF;
+        }
+         #saveButton {
+            margin-top: 30px;
+        }
+        #timeInput {
+            width: 200px;
+        }
+        #calendarButton {
+            background-color: #009EFF;
+            color: white;
+        }
+        #calendarButton:hover {
+            background-color: blue;
+            color: white;
+        }
+        table {
+           
         }
 
 
