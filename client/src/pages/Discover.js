@@ -5,11 +5,11 @@ import Freetime from "./Freetime";
 import Navbar from '../components/Navbar';
 
 class Discover extends Component {
-    render() {
+    render(props) {
 
         return (
             <div>
-                 {/* <Navbar loggedIn={this.state.loggedIn} username={this.state.username} /> */}
+                 <Navbar loggedIn={this.state.loggedIn} username={this.state.username} />
                  
                 <Freetime
                     name={"no@no.com"}
