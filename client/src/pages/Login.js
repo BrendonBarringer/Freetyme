@@ -1,11 +1,8 @@
 //This is the login page from 20 react 01 .. We don't need to use it .. 
 import React, { Component } from "react";
-
 import './login.css';
 import Logo from './images/logo2.png';
-// =======
 import authUtil from "../utils/authUtil";
-
 
 class Login extends Component {
   // Setting the initial values of this.state.username and this.state.password
