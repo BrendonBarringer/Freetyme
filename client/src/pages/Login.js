@@ -1,11 +1,11 @@
 //This is the login page from 20 react 01 .. We don't need to use it .. 
 import React, { Component } from "react";
-// <<<<<<< gary
+
 import './login.css';
 import Logo from './images/logo2.png';
 // =======
 import authUtil from "../utils/authUtil";
-// >>>>>>> master
+
 
 class Login extends Component {
   // Setting the initial values of this.state.username and this.state.password
@@ -72,7 +72,7 @@ class Login extends Component {
           onChange={this.handleInputChange}
         /><br />
         <button onClick={this.handleFormSubmit}>Submit</button>
-        <p>New to freetyme? <a href="#"> Create an account</a></p>
+        <p>New to freetyme? <a href="/signup"> Create an account</a></p>
       </form>
       </div>
     );
