@@ -37,6 +37,7 @@ class About extends Component {
   render() {
     return (
       <div>
+         <Navbar loggedIn={this.state.loggedIn} username={this.state.username} />
         <Hero backgroundImage="https://cdn.mpora.com/featured_image/5ab9061f750b9.jpg">
           <h1>FREETYME</h1>
           <h2>Matching Climbers together since 2018</h2>
