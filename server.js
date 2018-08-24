@@ -22,6 +22,7 @@ require('./passport-init')(app);
 
 // Define API routes here
 app.use(require("./routes/api/freetimeRoutes"));
+app.use(require("./routes/api/meetingRoutes"));
 
 // Send every other request to the React app
 // Define any API routes before this runs
@@ -31,6 +32,7 @@ app.get("*", (req, res) => {
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
+console.log("Doing db.sequelize.sync()");
 db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     // After sequelize sync completes, start to listen
