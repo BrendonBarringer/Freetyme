@@ -7,7 +7,8 @@ class Signup extends Component {
   // Setting the initial values of this.state.username and this.state.password
   state = {
     username: "",
-    password: ""
+    password: "",
+    passwordConfirm: "",
   };
 
   // handle any changes to the input fields
@@ -58,8 +59,8 @@ class Signup extends Component {
           className = "formInput"
           type="password"
           placeholder=" Confirm Password"
-          name="password"
-          value={this.state.password}
+          name="passwordConfirm"
+          value={this.state.passwordConfirm}
           onChange={this.handleInputChange}
         />
         

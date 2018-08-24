@@ -28,6 +28,7 @@ class Freetime extends Component {
         this.id=this.props.id
         return (
             <div>
+                
                 <p>
                     Name: {this.props.name}
                 </p>
@@ -38,6 +39,7 @@ class Freetime extends Component {
                     End Time: {this.props.endTime}
                 </p>
                 <button onClick={this.handleRemove}>Remove</button>
+                
             </div>
         );
     }
