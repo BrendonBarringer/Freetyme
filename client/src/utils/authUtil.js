@@ -1,16 +1,43 @@
 import axios from "axios";
-import Signup from "../pages/Signup";
 
 class AuthUtil {
   constructor() {
     this.loggedIn = false;
     this.username = "";
     this.loggedInChecked = false;
+    this.loginNotifyCallbacks = [];
+  }
+
+  // Add a notify callback
+  // Called whenever we login or logout
+  // Note: Call 'checkLoggedIn()' to 
+  //       cause notifies for current state
+  registerLoginNotify(cb) {
+    this.loginNotifyCallbacks.push(cb);
+  }
+
+  unregisterLoginNotify(cb) {
+    let index = this.loginNotifyCallbacks.indexOf(cb);
+    this.loginNotifyCallbacks.splice(index, 1);
+  }
+
+  // Notify everyone of login or logout
+  callNotifyCallbacks(loggedIn, username) {
+    for (let i = 0; i < this.loginNotifyCallbacks.length; i++)
+      this.loginNotifyCallbacks[i](loggedIn, username);
+  }
+
+  // Check for login
+  // Causes notify callbacks to be called
+  checkLoggedIn() {
+    this.isLoggedIn(null);
   }
 
   isLoggedIn(cb) {
     if (this.loggedInChecked) {
-      cb(this.loggedIn, this.username);
+      if (cb)
+        cb(this.loggedIn, this.username);
+      this.callNotifyCallbacks(this.loggedIn, this.username);
     } else {
       axios.get("/auth/is-logged-in")
       .then((result) => {
@@ -21,10 +48,14 @@ class AuthUtil {
           this.loggedIn = false;
           this.username = "";
         }
-        cb(this.loggedIn, this.username);
+        if (cb)
+          cb(this.loggedIn, this.username);
+        this.callNotifyCallbacks(this.loggedIn, this.username);
       })
       .catch((error) => {
-        cb(false, "");
+        if (cb)
+          cb(false, "");
+        this.callNotifyCallbacks(false, "");
       });
     }
   }
@@ -40,9 +71,11 @@ class AuthUtil {
         this.username = "";
       }
       cb(this.loggedIn, this.username);
+      this.callNotifyCallbacks(this.loggedIn, this.username);
     })
     .catch((error) => {
       cb(false, "");
+      this.callNotifyCallbacks(false, "");
     });
   }
 
@@ -57,23 +90,24 @@ class AuthUtil {
         this.username = "";
       }
       cb(this.loggedIn, this.username);
+      this.callNotifyCallbacks(this.loggedIn, this.username);
     })
     .catch((error) => {
       cb(false, "");
+      this.callNotifyCallbacks(false, "");
     });
   }
 
-
-Signup(username, password) {
-  axios.post(`/auth/user`,{
-    username: username,
-    password: password
-  }).then(function (response) {
-    console.log(response);
-  })
+  signup(username, password, callback) {
+    axios.post(`/auth/signup`, {username, password})
+    .then(function (response) {
+      console.log(response);
+      callback();
+    })
     .catch(function (err) {
       console.log(err);
+      callback();
     });
-};
+  };
 }
 export default new AuthUtil();

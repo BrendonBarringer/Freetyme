@@ -27,11 +27,13 @@ class Signup extends Component {
   // When the form is submitted, prevent the default event and alert the username and password
   handleFormSubmit = event => {
     event.preventDefault();
-    alert(`Username: ${this.state.username}\nPassword: ${this.state.password}`);
-
-    authUtil.Signup(this.state.username, this.state.password, window.location.href='/login');
-
-    this.setState({ username: "", password: "" });
+    // alert(`Username: ${this.state.username}\nPassword: ${this.state.password}`);
+    authUtil.signup(this.state.username, 
+                    this.state.password, 
+                    () => {
+                      this.setState({ username: "", password: "" });
+                      window.location.href='/login';
+                    });
   };
 
 

@@ -10,7 +10,6 @@ class Login extends Component {
     username : "",
     password : ""
   };
-  loginCB = null;
 
   // handle any changes to the input fields
   handleInputChange = event => {
@@ -34,7 +33,6 @@ class Login extends Component {
   // Callback for login
   handleLoginCB = (loggedIn, username) => {
     // Don't setState here. We want it to stay cleared.
-    this.loginCB(loggedIn, username);
 
     // If successful login. Redirect to About page
     if (loggedIn)
@@ -42,7 +40,6 @@ class Login extends Component {
   }
 
   render(props) {
-    this.loginCB = this.props.loginCB;
     return (
       <div>
       <div id="logo">                
