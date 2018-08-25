@@ -35,7 +35,7 @@ class Profile extends Component {
       return(        
     <div>
 
-       <Navbar loggedIn={this.state.loggedIn} username={this.state.username} />
+       <Navbar />
       <Hero backgroundImage="https://www.azernews.az/media/pictures/climbing.jpg">
 
         <h1>FREETYME</h1>

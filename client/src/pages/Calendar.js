@@ -55,7 +55,7 @@ click2 = () =>{
   render() {
     return (
       <div>
-        <Navbar loggedIn={this.state.loggedIn} username={this.state.username} />
+        <Navbar />
       <div className="app">      
       <h6>When are you free?</h6>
       <p>Select a start and end date/time</p>

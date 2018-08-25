@@ -45,7 +45,7 @@ class FreetimeList extends Component {
         console.log("render")
         return (
             <div>
-                <Navbar loggedIn={this.state.loggedIn} username={this.state.username} />
+                <Navbar />
                 {
                     this.state.freetimeList.map(item => {
                         return (

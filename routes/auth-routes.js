@@ -6,7 +6,7 @@ module.exports = function(passport) {
 
 	// POST "/auth/user"
 	// Add a new user
-	router.post("/auth/user", 
+	router.post("/auth/signup", 
 		function(req, res) {
 			db.User.createWithEncryptedPassword(req.body.username, req.body.password, function(results) {
 				res.json(results);
