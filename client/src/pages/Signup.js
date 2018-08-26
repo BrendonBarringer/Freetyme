@@ -42,7 +42,7 @@ class Signup extends Component {
     return (
       <div>
       <div id="logo">                
-      <img src= {Logo} />
+      <img src= {Logo} alt='logo' />
       <p>Insert catchpharase here.</p>
       </div>
       

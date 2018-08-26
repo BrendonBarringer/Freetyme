@@ -6,7 +6,7 @@ const { ensureAuthenticated } = require('connect-ensure-authenticated');
 // POST /api/meeting
 // Adds a new meeting.
 router.post('/api/start-meeting', 
-//   ensureAuthenticated(),
+  ensureAuthenticated(),
   function(req, res) {
     console.log("POST /api/start-meeting");
     let startTime = req.body.startTime;

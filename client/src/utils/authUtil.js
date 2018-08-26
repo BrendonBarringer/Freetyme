@@ -3,9 +3,17 @@ import axios from "axios";
 class AuthUtil {
   constructor() {
     this.loggedIn = false;
+    this.userId = 0;
     this.username = "";
     this.loggedInChecked = false;
     this.loginNotifyCallbacks = [];
+  }
+
+  // Get user id
+  // Note: Must call checkLoggedIn or logIn first
+  //       This will normally happen by displaying Navbar
+  getUserId() {
+    return this.userId;
   }
 
   // Add a notify callback
@@ -43,9 +51,11 @@ class AuthUtil {
       .then((result) => {
         if (result.data.success === "Yes") {
           this.loggedIn = true;
+          this.userId = result.data.user.id;
           this.username = result.data.user.username;
         } else {
           this.loggedIn = false;
+          this.userId = 0;
           this.username = "";
         }
         if (cb)
@@ -65,9 +75,11 @@ class AuthUtil {
     .then((result) => {
       if (result.data.success === "Yes") {
         this.loggedIn = true;
+        this.userId = result.data.user.id;
         this.username = result.data.user.username;
       } else {
         this.loggedIn = false;
+        this.userId = 0;
         this.username = "";
       }
       cb(this.loggedIn, this.username);
@@ -84,9 +96,11 @@ class AuthUtil {
     .then((result) => {
       if (result.data.success === "Yes") {
         this.loggedIn = true;
+        this.userId = result.data.user.id;
         this.username = result.data.user.username;
       } else {
         this.loggedIn = false;
+        this.username = 0;
         this.username = "";
       }
       cb(this.loggedIn, this.username);

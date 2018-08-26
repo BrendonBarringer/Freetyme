@@ -2,10 +2,6 @@ import axios from "axios";
 
 export default {
 
-  removeFreetime: function (id) {
-
-  },
-
   addFreetime: function (time1, time2) {
     axios.post(`/api/freetime`, {
       startTime: time1,
@@ -18,18 +14,34 @@ export default {
       });
   },
 
-
-
-
-  getFreetime: function (callback) {
+  getFreetime: function(callback) {
     axios.get('/api/freetime')
       .then((res) => {
-        console.log(res.data)
         callback(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
+  },
+
+  removeFreetime: function(freetimeId, callback) {
+    axios.delete('/api/freetime', {id: freetimeId})
+      .then((res) => {
+        callback(res.status);
+      })
+      .catch((err) => {
+        console.log(err);
+        callback(err.response.status);
+      });
+  },
+
+  startMeeting: function(startTime, callback) {
+    axios.post('/api/start-meeting', {startTime})
+      .then((res) => {
+        callback(res.data);
+      })
+      .catch((err) => {
+        callback(err.response.data);
+      });
   }
-  
 }

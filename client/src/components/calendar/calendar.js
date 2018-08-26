@@ -1,4 +1,4 @@
-import moment from 'moment';
+// import moment from 'moment';
 import React, { Component } from 'react';
 import cx from 'classnames';
 import range from 'lodash/range';
