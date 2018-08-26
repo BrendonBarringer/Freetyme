@@ -31,7 +31,7 @@ class Navbar extends React.Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light topnav">
         <Link className="navbar-brand" to="/">
-          <img src={Logo} className="logo" />
+          <img src={Logo} className="logo" alt='logo'/>
         </Link>
         <button className="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1"
           aria-expanded="false" aria-label="Toggle navigation"><span className="dark-blue-text"><i className="fa fa-bars fa-1x"></i></span>Menu</button>

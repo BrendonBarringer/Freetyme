@@ -5,30 +5,20 @@ import API from "../../utils/API";
 
 class Freetime extends Component {
 
-    componentDidMount = () => {
-    API.getFreetime()
-    }
-    // handleInputChange = event => {
-    //   // Destructure the name and value properties off of event.target
-    //   // Update the appropriate state
-    //   const { name, value } = event.target;
-    //   this.setState({
-    //     [name]: value
-    //   });
-    // };
-
     handleRemove = event => {
-        // When the form is submitted, prevent its default behavior, get recipes update the recipes state
-        //   event.preventDefault();
-        //   API.getRecipes(this.state.recipeSearch)
-        //     .then(res => this.setState({ recipes: res.data }))
-        //     .catch(err => console.log(err));
-        API.removeFreetime(this.id);
-
+        API.removeFreetime(this.freetimeId);
     };
 
+    handleStartMeeting = event => {
+        API.startMeeting(this.startTime, result => {
+            console.log(result);
+        });
+    }
+
     render(props) {
-        this.id=this.props.id
+        this.freetimeId=this.props.freetimeId;
+        this.userId=this.props.userId;
+        this.startTime = this.props.startTime;
         return (
             <div>
                 
@@ -41,7 +31,14 @@ class Freetime extends Component {
                 <p>
                     End Time: {this.props.endTime}
                 </p>
-                <button onClick={this.handleRemove}>Remove</button>
+                {/* Disable the Remove button if this user didn't create this Freetime */}
+                { this.props.loggedInId === this.props.userId ?
+                    (<button className="btn btn-sm btn-primary" onClick={this.handleRemove}>Remove</button>) :
+                    (<button className="btn btn-sm btn-primary" onClick={this.handleRemove} disabled>Remove</button>)
+                }
+                <button className="btn btn-sm btn-primary" onClick={this.handleStartMeeting}>
+                    Start Meeting
+                </button>
                 
             </div>
         );

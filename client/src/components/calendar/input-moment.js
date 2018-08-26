@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import moment from 'moment';
+// import moment from 'moment';
 import React, { Component } from 'react';
 import Calendar from './calendar';
 import Time from './time';
