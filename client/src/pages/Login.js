@@ -44,7 +44,7 @@ class Login extends Component {
       <div>
       <div id="logo">                
       <img src= {Logo} alt='logo' />
-      <p>Insert catchpharase here.</p>
+      <p>When you have the time...We help you climb</p>
       </div>
       
       <form id="form">        
