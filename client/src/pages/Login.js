@@ -35,8 +35,11 @@ class Login extends Component {
     // Don't setState here. We want it to stay cleared.
 
     // If successful login. Redirect to About page
-    if (loggedIn)
-      window.location.href = "/calendar";
+    if (loggedIn) {
+      window.location.href = "/calendar"
+    } else {
+      alert("Invalid Email or Password. Please Try Again");
+    }
   }
 
   render(props) {
