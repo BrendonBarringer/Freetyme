@@ -27,7 +27,7 @@ class App extends React.Component {
             <Route exact path="/about" component={About} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/logout" component={Logout} />
-            <Route exact path="/profile" component={Profile} />
+            {/* <Route exact path="/profile" component={Profile} /> */}
 
             <Route exact path="/signup" component={Signup} />
 

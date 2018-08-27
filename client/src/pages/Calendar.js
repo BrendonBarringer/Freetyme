@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-//import Calendar from './components/calendar/calendar.js';
+
  import InputMoment from '../components/calendar/input-moment';
  import moment from 'moment';
-//  import packageJson from '../package.json';
-//  import '../components/calendar/css'; 
-//  import '../components/calendar/less/app.less';
+
  import API from "../utils/API";
  import Navbar from '../components/Navbar';
+ import './login.css';
  
 
 class Calendar extends Component {
@@ -95,7 +92,7 @@ click2 = () =>{
       </div>      
       <div class="modal-footer">
             
-        <button type="button" class="btn btn-secondary" id="modal" ><a href="/freetime"  >View your freetyme's</a></button>
+        <button type="button" class="btn btn-secondary" id="modal" ><a href="/freetime"  >View freetyme's</a></button>
        
        
         <button type="button" class="btn btn-secondary" id="modal" ><a href="/calendar" >Schedule more freetyme's</a></button>

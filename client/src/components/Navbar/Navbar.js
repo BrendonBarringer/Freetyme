@@ -15,15 +15,16 @@ class Navbar extends React.Component {
   componentDidMount() {
     // This will check for logged in and trigger loggedInId notify callbacks
     // (If we don't do this, we won't know current state when component is mounted)
-    authUtil.registerLoginNotify((loggedInId, username, fullname) => this.loginCallback(loggedInId, username, fullname) );
+
+    authUtil.registerLoginNotify((loggedInId, fullname) => this.loginCallback(loggedInId, fullname) );
   }
 
   componentWillUnmount() {
-    authUtil.unregisterLoginNotify((loggedInId, username, fullname) => this.loginCallback(loggedInId, username, fullname) );   
+    authUtil.unregisterLoginNotify((loggedInId, fullname) => this.loginCallback(loggedInId, fullname) );   
   }
 
-  loginCallback(loggedInId, username, fullname) {
-    this.setState({loggedInId, username, fullname});
+  loginCallback(loggedInId, fullname) {
+    this.setState({loggedInId, fullname});
   }
 
   render(props) {
@@ -78,7 +79,7 @@ class Navbar extends React.Component {
                 Calendar
               </Link>
             </li>
-            <li
+            {/* <li
               className={
                 window.location.pathname === "/profile"
                   ? "nav-item active"
@@ -88,7 +89,7 @@ class Navbar extends React.Component {
               <Link to="/profile" className="nav-link">
                 Profile
               </Link>
-            </li>
+            </li> */}
             <li
               className={
                 window.location.pathname === "/about"
@@ -120,7 +121,7 @@ class Navbar extends React.Component {
               }
             >
               <Link to="/freetime" className="nav-link">
-                Freetime List
+                 Freetymes
               </Link>
             </li>
 
@@ -132,7 +133,7 @@ class Navbar extends React.Component {
               }
             >
               <Link to="/meeting" className="nav-link">
-                Meeting List
+                Meetups
               </Link>
             </li>
 

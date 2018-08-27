@@ -94,6 +94,20 @@
         #timeInput {
             margin-right: 10px;
         }
+        .aboutButton {
+            background-color: #009EFF;
+            color: white;
+            padding: 10px;
+        }
+        .aboutButton:hover {
+            background-color: blue;
+        }
+        .aboutButton a {
+            color: white;
+        }
+        #climb {
+            width: 180px;
+        }
         
 
         /* Mikes css */ 
@@ -127,6 +141,7 @@
 
         #title {
             -webkit-animation-delay: 1.5s;
+            -webkit-animation-duration: 10s;
         
         }
 
@@ -145,7 +160,7 @@
                 float: left;
             }
             .app {
-                max-width: 1200px;
+                max-width: 100%;
                 
             }
             .app h6 {
