@@ -7,6 +7,7 @@ class AuthUtil {
     this.username = "";
     this.loggedInChecked = false;
     this.loginNotifyCallbacks = [];
+    // sessionStorage.setItem("Yo", "Mama");
   }
 
   // Get user id
@@ -22,6 +23,7 @@ class AuthUtil {
   //       cause notifies for current state
   registerLoginNotify(cb) {
     this.loginNotifyCallbacks.push(cb);
+    this.checkLoggedIn();
   }
 
   unregisterLoginNotify(cb) {
@@ -30,9 +32,9 @@ class AuthUtil {
   }
 
   // Notify everyone of login or logout
-  callNotifyCallbacks(loggedIn, username) {
+  callNotifyCallbacks(userId, username) {
     for (let i = 0; i < this.loginNotifyCallbacks.length; i++)
-      this.loginNotifyCallbacks[i](loggedIn, username);
+      this.loginNotifyCallbacks[i](userId, username);
   }
 
   // Check for login
@@ -45,7 +47,7 @@ class AuthUtil {
     if (this.loggedInChecked) {
       if (cb)
         cb(this.loggedIn, this.username);
-      this.callNotifyCallbacks(this.loggedIn, this.username);
+      this.callNotifyCallbacks(this.userId, this.username);
     } else {
       axios.get("/auth/is-logged-in")
       .then((result) => {
@@ -60,12 +62,12 @@ class AuthUtil {
         }
         if (cb)
           cb(this.loggedIn, this.username);
-        this.callNotifyCallbacks(this.loggedIn, this.username);
+        this.callNotifyCallbacks(this.userId, this.username);
       })
       .catch((error) => {
         if (cb)
           cb(false, "");
-        this.callNotifyCallbacks(false, "");
+        this.callNotifyCallbacks(0, "");
       });
     }
   }
@@ -83,11 +85,11 @@ class AuthUtil {
         this.username = "";
       }
       cb(this.loggedIn, this.username);
-      this.callNotifyCallbacks(this.loggedIn, this.username);
+      this.callNotifyCallbacks(this.userId, this.username);
     })
     .catch((error) => {
       cb(false, "");
-      this.callNotifyCallbacks(false, "");
+      this.callNotifyCallbacks(0, "");
     });
   }
 
@@ -104,11 +106,11 @@ class AuthUtil {
         this.username = "";
       }
       cb(this.loggedIn, this.username);
-      this.callNotifyCallbacks(this.loggedIn, this.username);
+      this.callNotifyCallbacks(this.userId, this.username);
     })
     .catch((error) => {
       cb(false, "");
-      this.callNotifyCallbacks(false, "");
+      this.callNotifyCallbacks(0, "");
     });
   }
 

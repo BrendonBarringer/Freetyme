@@ -15,8 +15,11 @@ export default {
   },
 
   getFreetime: function(callback) {
+    console.log("API.getFreetime");
     axios.get('/api/freetime')
       .then((res) => {
+        console.log("returneed");
+        console.log(res.data);
         callback(res.data);
       })
       .catch((err) => {
@@ -25,7 +28,7 @@ export default {
   },
 
   removeFreetime: function(freetimeId, callback) {
-    axios.delete('/api/freetime', {id: freetimeId})
+    axios.delete('/api/freetime', {data: {freetimeId: freetimeId}})
       .then((res) => {
         callback(res.status);
       })
@@ -43,5 +46,38 @@ export default {
       .catch((err) => {
         callback(err.response.data);
       });
+  },
+
+  joinMeeting: function(meetingId, callback) {
+    axios.post('/api/join-meeting', {meetingId})
+      .then((res) => {
+        callback(res.data);
+      })
+      .catch((err) => {
+        callback(err.response.data);
+      });
+  },
+
+  unjoinMeeting: function(meetingId, callback) {
+    axios.post('/api/unjoin-meeting', {meetingId})
+      .then((res) => {
+        callback(res.data);
+      })
+      .catch((err) => {
+        callback(err.response.data);
+      });
+  },
+
+  // Get All Meetings
+  getMeeting: function(callback) {
+    axios.get('/api/meeting')
+      .then((res) => {
+        callback(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
+
 }
+

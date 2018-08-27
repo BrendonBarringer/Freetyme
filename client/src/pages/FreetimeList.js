@@ -10,8 +10,10 @@ class FreetimeList extends Component {
     
     constructor(props) {
         super(props);
-        this.state={freetimeList:[]} 
-        this.loggedInId = 0;  
+        this.state= { freetimeList:[],
+                      loggedInId  : 0,
+                      username    : ""
+                    }; 
     }
     
 
@@ -35,12 +37,20 @@ class FreetimeList extends Component {
     // };
 
     componentDidMount() {
-        this.loggedInId = authUtil.getUserId();
+        authUtil.registerLoginNotify((loggedInId, username) => this.loginCallback(loggedInId, username) );
         API.getFreetime((result) => {
             this.setState({ freetimeList: result });
         })
     }
 
+    componentWillUnmount() {
+        authUtil.unregisterLoginNotify((loggedInId, username) => this.loginCallback(loggedInId, username) );   
+    }
+    
+    loginCallback(loggedInId, username) {
+        this.setState({loggedInId, username});
+    }
+    
     render(props) {
         return (
             <div>
@@ -50,7 +60,7 @@ class FreetimeList extends Component {
                         return (
                             <Freetime
                                 key={i}
-                                loggedInId={this.loggedInId}
+                                loggedInId={this.state.loggedInId}
                                 name={item.User.username} 
                                 startTime={item.startTime} 
                                 endTime={item.endTime} 
