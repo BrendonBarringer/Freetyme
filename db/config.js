@@ -18,10 +18,10 @@ module.exports =
       "dialect": "mysql"
     },
     "production": {
-      "username": "root",
-      "password": 'root',
-      "database": "freetyme_db",
-      "host": "127.0.0.1",
+      "username": "ue1gz2nuqn2i2mnz",
+      "password": 'n9s00270i2efn1p4',
+      "database": "yelxxknsm0xybszc",
+      "host": "	kavfu5f7pido12mr.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
       "port": "process.env.DB_PORT" || 3306,
       "dialect": "mysql"
     }
