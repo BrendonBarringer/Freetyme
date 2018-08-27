@@ -36,7 +36,7 @@ class Login extends Component {
 
     // If successful login. Redirect to About page
     if (loggedIn)
-      window.location.href = "/contract";
+      window.location.href = "/calendar";
   }
 
   render(props) {
@@ -52,7 +52,7 @@ class Login extends Component {
         <input
           className = "formInput"
           type="text"
-          placeholder="  username"
+          placeholder="  email"
           name="username"
           value={this.state.username}
           onChange={this.handleInputChange}
