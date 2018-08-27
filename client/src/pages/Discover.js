@@ -12,9 +12,9 @@ class Discover extends Component {
             <div>
                 <Navbar />
 
-                <h1 className="text-center">Who is looking to climb</h1>
+                <h1 className="text-center">Here are some of our current users</h1>
                 <h3 className="text-center">
-                    Select a climber you would like to meet!
+                    Explore our meetups page 
                 </h3>
                 <Row>
                     <Col><Card image="http://storage.torontosun.com/v1/dynamic_resize/sws_path/suns-prod-images/1297999004111_ORIGINAL.jpg?size=520x" /></Col>
