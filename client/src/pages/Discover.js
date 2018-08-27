@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Card from "../components/Card";
 // import Freetime from "../components/Freetime/Freetime";
 import Navbar from '../components/Navbar';
+import { Container, Row, Col } from 'reactstrap';
 
 class Discover extends Component {
     render(props) {
@@ -15,13 +16,16 @@ class Discover extends Component {
                 <h3 className="text-center">
                     Select a climber you would like to meet!
                 </h3>
-                <Card image="http://www.lotusfw.com/wp-content/uploads/2018/05/iStock_000052229666_Medium-680x453.jpg" />
-                {/* <h1 className="text-center">Who is looking to climb</h1> */}
-                <br></br>
-                <h3 className="text-center">
-                    Select a climber you would like to meet!
-                </h3>
-                <Card image="https://s.hdnux.com/photos/31/57/37/6748129/3/920x920.jpg" />
+                <Row>
+                    <Col><Card image="http://storage.torontosun.com/v1/dynamic_resize/sws_path/suns-prod-images/1297999004111_ORIGINAL.jpg?size=520x" /></Col>
+                </Row>    
+                <Row>
+                    <Col><Card image="https://qph.fs.quoracdn.net/main-qimg-d5ce2918941405b38a96b8249085e750-c" /></Col>
+                </Row>
+                <Row>
+                    <Col><Card image="https://pixfeeds.com/images/adventure/rock-climbing/1280-115011797-woman-rockclimber.jpg" /></Col>
+                </Row>
+
             </div>
 
         );

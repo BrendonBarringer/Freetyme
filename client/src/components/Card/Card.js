@@ -1,6 +1,8 @@
 import React from "react";
 import CardBtn from "../CardBtn";
 import "./Card.css";
+import { Button } from 'reactstrap';
+
 
 const Card = props => (
   <div
@@ -10,7 +12,8 @@ const Card = props => (
     }}
   >
     {!props.image && <i className="fa fa-spinner fa-spin" aria-hidden="true" />}
-    <CardBtn
+    <Button color="primary" size="sm">contact</Button>{' '}
+    {/* <CardBtn
       style={{ opacity: props.image ? 1 : 0 }}
       onClick={props.handleBtnClick}
       data-value="pass"
@@ -19,7 +22,8 @@ const Card = props => (
       style={{ opacity: props.image ? 1 : 0 }}
       onClick={props.handleBtnClick}
       data-value="pick"
-    />
+    /> */}
+    
   </div>
 );
 
