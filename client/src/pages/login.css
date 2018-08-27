@@ -141,6 +141,7 @@
 
         #title {
             -webkit-animation-delay: 1.5s;
+            -webkit-animation-duration: 10s;
         
         }
 
@@ -159,7 +160,7 @@
                 float: left;
             }
             .app {
-                max-width: 1200px;
+                max-width: 100%;
                 
             }
             .app h6 {
