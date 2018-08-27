@@ -65,7 +65,7 @@ export default class Calendar extends Component {
     const weeks = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
     return (
-      <div className={cx('m-calendar', this.props.className)}>
+      <div className={cx('m-calendar', this.props.className,)}>
         <div className="toolbar">
           <button type="button" className="prev-month" onClick={this.prevMonth}>
             <i className={this.props.prevMonthIcon} />

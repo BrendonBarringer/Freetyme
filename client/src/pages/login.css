@@ -91,6 +91,10 @@
         .next-month {
             color: white;
         }
+        #timeInput {
+            margin-right: 10px;
+        }
+        
 
         /* Mikes css */ 
         #times {
@@ -156,5 +160,8 @@
             }
             #calendarButton {
                 padding: 10px 20px 10px 20px;
+            }
+            #calendarMove {
+                -webkit-animation-duration: 2s;
             }
         }

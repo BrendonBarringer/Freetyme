@@ -69,6 +69,8 @@ click2 = () =>{
           onChange={this.handleChange}
           minStep={15}
           onSave={this.handleSave}
+          className= "animated fadeInDownBig"
+          id="calendarMove"
         />
        </form>
       <div id="saveTimes">
