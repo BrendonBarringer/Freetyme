@@ -37,10 +37,10 @@ class About extends Component {
   render() {
     return (
       <div>
-         <Navbar loggedIn={this.state.loggedIn} username={this.state.username} />
+         <Navbar />
         <Hero backgroundImage="https://cdn.mpora.com/featured_image/5ab9061f750b9.jpg">
           <h1>FREETYME</h1>
-          <h2>Matching Climbers together since 2018</h2>
+          <h2>Bringing Climbers together since 2018</h2>
         </Hero>
         <Container style={{ marginTop: 30 }}>
           <Row>
@@ -69,7 +69,7 @@ class About extends Component {
               <p>
                 So, don't get left hangin'...Use Freetyme and Climb On!
           </p>
-          <button>View Listings</button>
+          <button>Create Account</button>
             </Col>
           </Row>
         </Container>

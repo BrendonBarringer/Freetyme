@@ -2,24 +2,42 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Logo from '../../pages/images/logo.png';
-
+import authUtil from '../../utils/authUtil';
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 
 class Navbar extends React.Component {
+  state = { 
+    loggedInId: 0,
+    username: ""
+  }
+
+  componentDidMount() {
+    // This will check for logged in and trigger loggedInId notify callbacks
+    // (If we don't do this, we won't know current state when component is mounted)
+    authUtil.registerLoginNotify((loggedInId, username) => this.loginCallback(loggedInId, username) );
+  }
+
+  componentWillUnmount() {
+    authUtil.unregisterLoginNotify((loggedInId, username) => this.loginCallback(loggedInId, username) );   
+  }
+
+  loginCallback(loggedInId, username) {
+    this.setState({loggedInId, username});
+  }
 
   render(props) {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light topnav">
         <Link className="navbar-brand" to="/">
-          <img src={Logo} className="logo" />
+          <img src={Logo} className="logo" alt='logo'/>
         </Link>
-        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1"
-          aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i class="fa fa-bars fa-1x"></i></span>Menu</button>
+        <button className="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1"
+          aria-expanded="false" aria-label="Toggle navigation"><span className="dark-blue-text"><i className="fa fa-bars fa-1x"></i></span>Menu</button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent1">
           <ul className="navbar-nav mr-auto">
             {
-              this.props.loggedIn ? (
+              this.state.loggedInId > 0 ? (
                 // Logout Page
                 <li
                   className={
@@ -91,7 +109,7 @@ class Navbar extends React.Component {
             >
               <Link to="/discover" className="nav-link">
                 Discover
-          </Link>
+              </Link>
             </li>
 
             <li
@@ -103,9 +121,20 @@ class Navbar extends React.Component {
             >
               <Link to="/freetime" className="nav-link">
                 Freetime List
-          </Link>
+              </Link>
             </li>
 
+            <li
+              className={
+                window.location.pathname === "/meeting"
+                  ? "nav-item active"
+                  : "nav-item"
+              }
+            >
+              <Link to="/meeting" className="nav-link">
+                Meeting List
+              </Link>
+            </li>
 
 
             <li
@@ -123,8 +152,8 @@ class Navbar extends React.Component {
 
           </ul>
           <form className="form-inline">
-            {this.props.loggedIn ?
-              (<span className="navbar-text">Hello {this.props.username}</span>) :
+            {this.state.loggedInId > 0 ?
+              (<span className="navbar-text">Hello {this.state.username}</span>) :
               (<span className="navbar-text"></span>)
             }
           </form>

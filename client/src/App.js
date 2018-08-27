@@ -6,30 +6,16 @@ import About from "./pages/About";
 import Profile from "./pages/Profile";
 import Discover from "./pages/Discover";
 import FreetimeList from "./pages/FreetimeList";
+import MeetingList from "./pages/MeetingList";
 import Signup from './pages/Signup';
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+// import Navbar from "./components/Navbar";
+// import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import Calendar from "./pages/Calendar";
 // import './components/calendar/less/input-moment.less';
 
-import authUtil from "./utils/authUtil";
-
 class App extends React.Component {
-  state = {
-    loggedIn: false,
-    username: "",
-  }
-
-  constructor () {
-    super();
-    authUtil.isLoggedIn((loggedIn, username) => this.loginCB(loggedIn, username));
-  }
   
-  loginCB(loggedIn, username) {
-    this.setState({loggedIn, username});
-  }
-
   render(props) {
     return (
       <Router>
@@ -39,16 +25,15 @@ class App extends React.Component {
             <Route exact path="/" component={About} />
             <Route exact path="/calendar" component={Calendar} />
             <Route exact path="/about" component={About} />
-            <Route exact path='/login' render={(props) => <Login {...props} 
-                   loginCB={(loggedIn, username) => this.loginCB(loggedIn, username)} />}/>
-            <Route exact path='/logout' render={(props) => <Logout {...props} 
-                   loginCB={(loggedIn, username) => this.loginCB(loggedIn, username)} />}/>
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/logout" component={Logout} />
             <Route exact path="/profile" component={Profile} />
 
             <Route exact path="/signup" component={Signup} />
 
             <Route exact path="/discover" component={Discover} />
             <Route exact path="/freetime" component={FreetimeList} />
+            <Route exact path="/meeting"  component={MeetingList} />
 
           </Wrapper>
           {/* <Footer /> */}

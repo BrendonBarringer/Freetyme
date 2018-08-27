@@ -1,48 +1,58 @@
 //profile page will display the users entries, and matches from other profiles?
 import React, { Component } from "react";
 import API from "../../utils/API";
+import Card from "../Card";
+import { Container, Row, Col } from 'reactstrap';
 
 
 class Freetime extends Component {
 
-    componentDidMount = () => {
-    API.getFreetime()
-    }
-    // handleInputChange = event => {
-    //   // Destructure the name and value properties off of event.target
-    //   // Update the appropriate state
-    //   const { name, value } = event.target;
-    //   this.setState({
-    //     [name]: value
-    //   });
-    // };
-
     handleRemove = event => {
-        // When the form is submitted, prevent its default behavior, get recipes update the recipes state
-        //   event.preventDefault();
-        //   API.getRecipes(this.state.recipeSearch)
-        //     .then(res => this.setState({ recipes: res.data }))
-        //     .catch(err => console.log(err));
-        API.removeFreetime(this.id);
-
+        API.removeFreetime(this.freetimeId, result => {
+            // Redisplay the page
+            window.location.href = "/freetime";
+        });
     };
 
+    handleStartMeeting = event => {
+        API.startMeeting(this.startTime, result => {
+            // Redisplay the page
+            window.location.href = "/freetime";
+        });
+    }
+
     render(props) {
-        this.id=this.props.id
+        this.freetimeId = this.props.freetimeId;
+        this.userId = this.props.userId;
+        this.startTime = this.props.startTime;
         return (
+
             <div>
-                
-                <p>
-                    Name: {this.props.name}
-                </p>
-                <p>
-                    Start Time: {this.props.startTime}
-                </p>
-                <p>
-                    End Time: {this.props.endTime}
-                </p>
-                <button onClick={this.handleRemove}>Remove</button>
-                
+                <div className="results">
+
+                    <p>
+                        Name: {this.props.name}
+                    </p>
+
+                    <p>
+
+                        Start Time: {this.props.startTime}
+                    </p>
+                    <p>
+
+                        End Time: {this.props.endTime}
+                    </p>
+
+                    {/* Disable the Remove button if this user didn't create this Freetime */}
+                    {this.props.loggedInId === this.props.userId ?
+                        (<button className="btn btn-sm btn-primary" onClick={this.handleRemove}>Remove</button>) :
+                        (<button className="btn btn-sm btn-primary" onClick={this.handleRemove} disabled>Remove</button>)
+                    }
+
+                    <br></br>
+
+                    <button className="btn btn-sm btn-primary" onClick={this.handleStartMeeting}>Start Meeting</button>
+                </div>
             </div>
         );
     }
