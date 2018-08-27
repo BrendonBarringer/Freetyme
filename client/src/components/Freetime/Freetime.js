@@ -30,21 +30,23 @@ class Freetime extends Component {
         this.freetimeId = this.props.freetimeId;
         this.userId = this.props.userId;
         this.startTime = this.props.startTime;
+        this.fullname = this.props.fullname;
+        this.climbAbility = this.props.climbAbility;
         return (
 
             <div>
                 <div className="results">
 
                     <p>
-                        Name: {this.props.name}
+                        Name: {this.props.fullname}</p>
+                       <p> Email: {this.props.name}</p>
+                       <p> Experience: {this.props.climbAbility}
                     </p>
 
                     <p>
-
-                        Start Time: {this.formatTime(this.props.startTime)}
+                    Start Time: {this.formatTime(this.props.startTime)}
                     </p>
                     <p>
-
                         End Time: {this.formatTime(this.props.endTime)}
                     </p>
 
@@ -53,10 +55,11 @@ class Freetime extends Component {
                         (<button className="btn btn-sm btn-primary" onClick={this.handleRemove}>Remove</button>) :
                         (<button className="btn btn-sm btn-primary" onClick={this.handleRemove} disabled>Remove</button>)
                     }
+                         <button className="btn btn-sm btn-primary" onClick={this.handleStartMeeting}>Start Meeting</button>
 
-                    <br></br>
 
-                    <button className="btn btn-sm btn-primary" onClick={this.handleStartMeeting}>Start Meeting</button>
+                    
+
                 </div>
             </div>
         );

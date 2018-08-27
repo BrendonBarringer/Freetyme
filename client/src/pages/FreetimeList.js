@@ -65,7 +65,9 @@ class FreetimeList extends Component {
                             <Freetime
                                 key={i}
                                 loggedInId={this.state.loggedInId}
+                                fullname={item.User.fullname}
                                 name={item.User.username} 
+                                climbAbility={item.User.climbAbility}
                                 startTime={item.startTime} 
                                 endTime={item.endTime} 
                                 freetimeId={item.id}

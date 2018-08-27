@@ -8,7 +8,8 @@ module.exports = function(passport) {
 	// Add a new user
 	router.post("/auth/signup", 
 		function(req, res) {
-			db.User.createWithEncryptedPassword(req.body.username, req.body.password, function(results) {
+			console.log(req.body);
+			db.User.createWithEncryptedPassword(req.body.fullname, req.body.username, req.body.climbAbility, req.body.password, function(results) {
 				res.json(results);
 			});
 		});
