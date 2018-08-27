@@ -9,6 +9,7 @@ import React, { Component } from 'react';
 //  import '../components/calendar/less/app.less';
  import API from "../utils/API";
  import Navbar from '../components/Navbar';
+ 
 
 class Calendar extends Component {
   state = {
@@ -57,9 +58,9 @@ click2 = () =>{
       <div>
         <Navbar />
       <div className="app">      
-      <h6>When are you free?</h6>
+      <h6>WHEN ARE YOU FREE?</h6>
       <p>Select a start and end date/time</p>
-      <form>
+      <form id="timeForm">
         {/* <div className="input">
           <input type="text" value={this.state.m.format('llll')} readOnly />
         </div> */}
@@ -68,14 +69,38 @@ click2 = () =>{
           onChange={this.handleChange}
           minStep={15}
           onSave={this.handleSave}
+          className= "animated fadeInDownBig"
+          id="calendarMove"
         />
-      </form>
-      <br></br><div>
-         <button id="calendarButton" onClick={this.resetStart}>Reset Start Time</button> <br></br><input placeholder="Start Time" type="text" id="timeInput" value={this.state.time1}/><br></br>
-         <button id="calendarButton" onClick={this.resetEnd}>Reset End Time </button><br></br> <input placeholder="End Time" type="text" id="timeInput" value={this.state.time2}/><br></br>
-        <button id="calendarButton" onClick={this.click2}>Save Your FreeTyme</button>
+       </form>
+      <div id="saveTimes">
+         <input placeholder="Start Time" class="animated lightSpeedIn" type="text" id="timeInput" value={this.state.time1}/><button id="calendarButton" class="animated bounceInRight" onClick={this.resetStart}>Clear</button><br></br>
+          <input placeholder="End Time" class="animated lightSpeedIn" type="text" id="timeInput" value={this.state.time2}/><button id="calendarButton" class="animated bounceInRight" onClick={this.resetEnd}>Clear </button><br></br>
+        <button id="calendarButton" class="animated lightSpeedIn" data-toggle="modal" data-target="#exampleModal" onClick={this.click2}>Save Your FreeTyme</button>
         </div>
+       
     </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Your freetyme has been saved!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>      
+      <div class="modal-footer">
+            
+        <button type="button" class="btn btn-secondary" id="modal" ><a href="/freetime"  >View your freetyme's</a></button>
+       
+       
+        <button type="button" class="btn btn-secondary" id="modal" ><a href="/calendar" >Schedule more freetyme's</a></button>
+       
+      </div>
+    </div>
+  </div>
+</div>
     </div>
        
     );

@@ -11,7 +11,7 @@
         #form {
             background-color:#009EFF;
             width: 100%;
-            height: 250px;
+            /* height: 250px; */
             padding: 20px;
             text-align: center;
             color: white;
@@ -77,6 +77,24 @@
             background-color: blue;
             color: white;
         }
+        #modal {
+            background-color: #009EFF;
+                       
+        }
+        .modal-footer a {
+            color: white;
+        }
+        .modal-footer {
+            display: block;
+        }
+        .prev-month,
+        .next-month {
+            color: white;
+        }
+        #timeInput {
+            margin-right: 10px;
+        }
+        
 
         /* Mikes css */ 
         #times {
@@ -84,10 +102,9 @@
         }
 
         .list {
-            color: #009EFF;
             margin-top: 5px;
             text-align: center;
-            width: 75%;
+            width: 50%;
             font-size: 15px;
             margin: auto;
             font-family: sans-serif;
@@ -108,6 +125,10 @@
             padding: 12px;
         }
 
+        #title {
+            -webkit-animation-delay: 1.5s;
+        
+        }
 
         /* Desktop media query */
         @media only screen and (min-width: 768px) {
@@ -118,5 +139,29 @@
             button {
                 padding-left: 25px;
                 padding-right: 25px;
+            }           
+            .m-input-moment {
+                width: 50%;
+                float: left;
+            }
+            .app {
+                max-width: 1200px;
+                
+            }
+            .app h6 {
+                font-size: 2.5em;
+            }
+            .app p {
+                font-size: 2em;
+                margin-bottom: 50px;
+            }
+            #timeInput {
+                margin-right: 10px;
+            }
+            #calendarButton {
+                padding: 10px 20px 10px 20px;
+            }
+            #calendarMove {
+                -webkit-animation-duration: 2s;
             }
         }

@@ -8,7 +8,9 @@ import authUtil from "../utils/authUtil";
 class Signup extends Component {
   // Setting the initial values of this.state.username and this.state.password
   state = {
+    fullname: "",
     username: "",
+    climbAbility: "",
     password: "",
     passwordConfirm: "",
   };
@@ -28,7 +30,7 @@ class Signup extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     // alert(`Username: ${this.state.username}\nPassword: ${this.state.password}`);
-    authUtil.signup(this.state.username,
+    authUtil.signup(this.state.fullname, this.state.username, this.state.climbAbility,
       this.state.password,
       () => {
         this.setState({ username: "", password: "" });
@@ -50,6 +52,14 @@ class Signup extends Component {
           <h1>Sign up</h1>
           <input
             className="formInput"
+            type="text"
+            placeholder="  Full Name"
+            name="fullname"
+            value={this.state.fullname}
+            onChange={this.handleInputChange}
+          />
+          <input         
+            className="formInput"
             type="email"
             placeholder="  Email"
             name="username"
@@ -70,6 +80,16 @@ class Signup extends Component {
             placeholder=" Confirm Password"
             name="passwordConfirm"
             value={this.state.passwordConfirm}
+            onChange={this.handleInputChange}
+          />
+          <input
+            className="formInput"
+            type="number"
+            placeholder=" Climbing Ability (1-10)"
+            // min="1"
+            max="5"
+            name="climbAbility"
+            value={this.state.climbAbility}
             onChange={this.handleInputChange}
           />
 

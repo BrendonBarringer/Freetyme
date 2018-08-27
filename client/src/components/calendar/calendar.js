@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import cx from 'classnames';
 import range from 'lodash/range';
 import chunk from 'lodash/chunk';
+import InputMoment from './input-moment';
 
 
 const Day = ({ i, w, d, className, ...props }) => {
@@ -41,6 +42,15 @@ export default class Calendar extends Component {
     this.props.onChange(this.props.moment.add(1, 'month'));
   };
 
+  state = {
+    tab: 0
+  };
+
+  handleClickTab = (e, tab) => {
+    e.preventDefault();
+    this.setState({ tab: tab });    
+  };
+
   render() {
     const m = this.props.moment;
     const d = m.date();
@@ -55,7 +65,7 @@ export default class Calendar extends Component {
     const weeks = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
     return (
-      <div className={cx('m-calendar', this.props.className)}>
+      <div className={cx('m-calendar', this.props.className,)}>
         <div className="toolbar">
           <button type="button" className="prev-month" onClick={this.prevMonth}>
             <i className={this.props.prevMonthIcon} />
@@ -82,7 +92,9 @@ export default class Calendar extends Component {
                     i={i}
                     d={d}
                     w={w}
-                    onClick={() => this.selectDate(i, w)}
+                    onClick={() => {this.selectDate(i, w);
+                      e => this.handleClickTab(e, 1);}}
+                      
                   />
                 )}
               </tr>

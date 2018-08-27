@@ -93,30 +93,13 @@ router.post('/api/unjoin-meeting',
   }
 );
 
-// // GET /api/meeting/:id
-// // Get a single meeting by id
-// router.get('/api/meeting/:id',
-//   ensureAuthenticated(),
-//   function (req, res) {
-//     db.Meeting.findAll({
-//         where: {
-//             id: req.params.id
-//         }
-//       })
-//       .then(matches => {
-//         res.json(matches)
-//       })
-//       .catch(error => {
-//         res.json(error);
-//       });
-// });
-
 // GET /api/meeting
 // Get all meetings
 router.get('/api/meeting',
   ensureAuthenticated(),
   function (req, res) {
-    db.Meeting.findAll( {include: [db.User]} )
+    db.Meeting.findAll( {include: [db.User],
+                         order  : ["startTime"]} )
     .then(matches => {
       res.json(matches)
     })
