@@ -69,7 +69,8 @@ class About extends Component {
               <p>
                 So, don't get left hangin'...Use Freetyme and Climb On!
           </p>
-          <button>Create Account</button>
+          <button class="aboutButton"><a href="/login" >Login</a></button>
+          <button class="aboutButton"><a href="/signup" >New Users</a></button>
             </Col>
           </Row>
         </Container>

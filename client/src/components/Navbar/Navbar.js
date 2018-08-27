@@ -78,7 +78,7 @@ class Navbar extends React.Component {
                 Calendar
               </Link>
             </li>
-            <li
+            {/* <li
               className={
                 window.location.pathname === "/profile"
                   ? "nav-item active"
@@ -88,7 +88,7 @@ class Navbar extends React.Component {
               <Link to="/profile" className="nav-link">
                 Profile
               </Link>
-            </li>
+            </li> */}
             <li
               className={
                 window.location.pathname === "/about"
