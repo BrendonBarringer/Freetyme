@@ -3,7 +3,9 @@ const saltRounds = 10;
 
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define("User", {
-      username : { type: DataTypes.STRING, unique: true },
+      fullname : { type: DataTypes.STRING, required: true },
+      username : { type: DataTypes.STRING, unique: true   },
+      climbAbility   : { type: DataTypes.INTEGER, required: true},
       hash     : { type: DataTypes.STRING, required: true }
     });
   
@@ -17,12 +19,12 @@ module.exports = function(sequelize, DataTypes) {
       return bcrypt.compareSync(password, this.hash)
     }
 
-    User.createWithEncryptedPassword = function(username, password, callback) {
+    User.createWithEncryptedPassword = function(fullname, username, climbAbility, password, callback) {
       bcrypt.hash(password, saltRounds, function(error, hash) {
         if (error) {
           callback({success: "No", message: "create has failed"});
         }
-        User.create({username, hash})
+        User.create({fullname, username, climbAbility, hash})
         .then(function(result) {
           callback({success: "Yes", message: "Created new user", user : {id: result.id, username: result.username}});
         })
