@@ -1,4 +1,5 @@
 .card {
+  background-image: url("https://i.pinimg.com/originals/60/f2/f0/60f2f07eda1c59db1efe917da18d2e6e.jpg");
   background-size: cover;
   background-position: center;
   background-clip: content-box;
@@ -6,10 +7,11 @@
   height: 300px;
   width: 300px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  position: relative;
+  position: auto;
   margin: 0 auto;
   margin-top: 30px;
 }
+
 
 .card .fa-spinner {
   font-size: 180px;

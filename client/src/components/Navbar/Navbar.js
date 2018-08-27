@@ -153,7 +153,7 @@ class Navbar extends React.Component {
           </ul>
           <form className="form-inline">
             {this.state.loggedInId > 0 ?
-              (<span className="navbar-text">Hello {this.state.username}</span>) :
+              (<span className="navbar-text">Hello, {this.state.username}</span>) :
               (<span className="navbar-text"></span>)
             }
           </form>
