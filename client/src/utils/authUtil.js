@@ -4,7 +4,7 @@ class AuthUtil {
   constructor() {
     this.loggedIn = false;
     this.userId = 0;
-    this.username = "";
+    this.fullname = "";
     this.loggedInChecked = false;
     this.loginNotifyCallbacks = [];
     // sessionStorage.setItem("Yo", "Mama");
@@ -32,9 +32,9 @@ class AuthUtil {
   }
 
   // Notify everyone of login or logout
-  callNotifyCallbacks(userId, username) {
+  callNotifyCallbacks(userId, fullname) {
     for (let i = 0; i < this.loginNotifyCallbacks.length; i++)
-      this.loginNotifyCallbacks[i](userId, username);
+      this.loginNotifyCallbacks[i](userId, fullname);
   }
 
   // Check for login
@@ -46,23 +46,23 @@ class AuthUtil {
   isLoggedIn(cb) {
     if (this.loggedInChecked) {
       if (cb)
-        cb(this.loggedIn, this.username);
-      this.callNotifyCallbacks(this.userId, this.username);
+        cb(this.loggedIn, this.fullname);
+      this.callNotifyCallbacks(this.userId, this.fullname);
     } else {
       axios.get("/auth/is-logged-in")
       .then((result) => {
         if (result.data.success === "Yes") {
           this.loggedIn = true;
           this.userId = result.data.user.id;
-          this.username = result.data.user.username;
+          this.fullname = result.data.user.fullname;
         } else {
           this.loggedIn = false;
           this.userId = 0;
-          this.username = "";
+          this.fullname = "";
         }
         if (cb)
-          cb(this.loggedIn, this.username);
-        this.callNotifyCallbacks(this.userId, this.username);
+          cb(this.loggedIn, this.fullname);
+        this.callNotifyCallbacks(this.userId, this.fullname);
       })
       .catch((error) => {
         if (cb)
@@ -99,14 +99,14 @@ class AuthUtil {
       if (result.data.success === "Yes") {
         this.loggedIn = true;
         this.userId = result.data.user.id;
-        this.username = result.data.user.username;
+        this.fullname = result.data.user.fullname;
       } else {
         this.loggedIn = false;
-        this.username = 0;
-        this.username = "";
+        this.userId = 0;
+        this.fullname = "";
       }
-      cb(this.loggedIn, this.username);
-      this.callNotifyCallbacks(this.userId, this.username);
+      cb(this.loggedIn, this.fullname);
+      this.callNotifyCallbacks(this.userId, this.fullname);
     })
     .catch((error) => {
       cb(false, "");
