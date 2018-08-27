@@ -42,7 +42,7 @@ class Meeting extends Component {
           <div>Who's all signed up:</div>
           {
             this.props.meeting.Users.map(user => {
-              return (<span key={user.id} className="mr-2">{user.username}</span>)
+              return (<div><span key={user.id} className="mr-2 pr-2">{user.fullname}</span><span>{user.username}</span></div>)
             })
           }
         </div>

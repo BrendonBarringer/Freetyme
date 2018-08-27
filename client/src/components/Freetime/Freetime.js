@@ -18,7 +18,7 @@ class Freetime extends Component {
     handleStartMeeting = event => {
         API.startMeeting(this.startTime, result => {
             // Redisplay the page
-            window.location.href = "/freetime";
+            window.location.href = "/meeting";
         });
     }
 
