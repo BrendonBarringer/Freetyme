@@ -36,7 +36,7 @@ class Login extends Component {
 
     // If successful login. Redirect to About page
     if (loggedIn)
-      window.location.href = "/about";
+      window.location.href = "/contract";
   }
 
   render(props) {
