@@ -81,7 +81,7 @@ export default class InputMoment extends Component {
             type="button"
             id="saveButton"
             className="im-btn btn-save ion-checkmark"
-            onClick={this.handleSave}
+            onClick={this.handleSave}            
           >
             Save
           </button>
