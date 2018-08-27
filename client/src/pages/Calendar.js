@@ -72,8 +72,8 @@ click2 = () =>{
         />
        </form>
       <div id="saveTimes">
-         <input placeholder="Start Time" class="animated lightSpeedIn" type="text" id="timeInput" value={this.state.time1}/><button id="calendarButton" class="animated lightSpeedIn" onClick={this.resetStart}>Clear</button><br></br>
-          <input placeholder="End Time" class="animated lightSpeedIn" type="text" id="timeInput" value={this.state.time2}/><button id="calendarButton" class="animated lightSpeedIn" onClick={this.resetEnd}>Clear </button><br></br>
+         <input placeholder="Start Time" class="animated lightSpeedIn" type="text" id="timeInput" value={this.state.time1}/><button id="calendarButton" class="animated bounceInRight" onClick={this.resetStart}>Clear</button><br></br>
+          <input placeholder="End Time" class="animated lightSpeedIn" type="text" id="timeInput" value={this.state.time2}/><button id="calendarButton" class="animated bounceInRight" onClick={this.resetEnd}>Clear </button><br></br>
         <button id="calendarButton" class="animated lightSpeedIn" data-toggle="modal" data-target="#exampleModal" onClick={this.click2}>Save Your FreeTyme</button>
         </div>
        

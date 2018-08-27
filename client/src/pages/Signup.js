@@ -50,6 +50,14 @@ class Signup extends Component {
           <h1>Sign up</h1>
           <input
             className="formInput"
+            type="text"
+            placeholder="  Full Name"
+            name="fullName"
+            value={this.state.fullName}
+            onChange={this.handleInputChange}
+          />
+          <input         
+            className="formInput"
             type="email"
             placeholder="  Email"
             name="username"
@@ -70,6 +78,16 @@ class Signup extends Component {
             placeholder=" Confirm Password"
             name="passwordConfirm"
             value={this.state.passwordConfirm}
+            onChange={this.handleInputChange}
+          />
+          <input
+            className="formInput"
+            type="number"
+            placeholder=" Climbing Ability (1-10)"
+            // min="1"
+            max="5"
+            name="climbAbility"
+            value={this.state.climbAbility}
             onChange={this.handleInputChange}
           />
 
