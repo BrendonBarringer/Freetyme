@@ -19,9 +19,9 @@ module.exports =
     },
     "production": {
       "username": "ue1gz2nuqn2i2mnz",
-      "password": 'n9s00270i2efn1p4',
+      "password": "n9s00270i2efn1p4",
       "database": "yelxxknsm0xybszc",
-      "host": "	kavfu5f7pido12mr.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+      "host": "kavfu5f7pido12mr.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
       "port": "process.env.DB_PORT" || 3306,
       "dialect": "mysql"
     }
