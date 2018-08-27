@@ -105,6 +105,9 @@
         .aboutButton a {
             color: white;
         }
+        #climb {
+            width: 180px;
+        }
         
 
         /* Mikes css */ 

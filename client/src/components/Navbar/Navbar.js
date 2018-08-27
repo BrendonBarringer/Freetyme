@@ -120,7 +120,7 @@ class Navbar extends React.Component {
               }
             >
               <Link to="/freetime" className="nav-link">
-                Freetime List
+                 Freetymes
               </Link>
             </li>
 
@@ -132,7 +132,7 @@ class Navbar extends React.Component {
               }
             >
               <Link to="/meeting" className="nav-link">
-                Meeting List
+                Meetups
               </Link>
             </li>
 
