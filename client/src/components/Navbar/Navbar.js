@@ -15,6 +15,7 @@ class Navbar extends React.Component {
   componentDidMount() {
     // This will check for logged in and trigger loggedInId notify callbacks
     // (If we don't do this, we won't know current state when component is mounted)
+
     authUtil.registerLoginNotify((loggedInId, fullname) => this.loginCallback(loggedInId, fullname) );
   }
 

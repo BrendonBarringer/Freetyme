@@ -32,6 +32,7 @@ class AuthUtil {
   }
 
   // Notify everyone of login or logout
+
   callNotifyCallbacks(userId, fullname) {
     for (let i = 0; i < this.loginNotifyCallbacks.length; i++)
       this.loginNotifyCallbacks[i](userId, fullname);
@@ -46,6 +47,7 @@ class AuthUtil {
   isLoggedIn(cb) {
     if (this.loggedInChecked) {
       if (cb)
+
         cb(this.loggedIn, this.fullname);
       this.callNotifyCallbacks(this.userId, this.fullname);
     } else {
@@ -58,6 +60,7 @@ class AuthUtil {
         } else {
           this.loggedIn = false;
           this.userId = 0;
+
           this.fullname = "";
         }
         if (cb)
