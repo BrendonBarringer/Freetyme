@@ -29,7 +29,7 @@ class Meeting extends Component {
   render(props) {
     this.meeting = this.props.meeting;
     return (
-      <div>
+      <div className="results">
         <div>
           StartTime: {this.props.meeting.startTime}
         </div>
