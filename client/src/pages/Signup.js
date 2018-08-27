@@ -84,9 +84,10 @@ class Signup extends Component {
           />
           <input
             className="formInput"
+            id="climb"
             type="number"
-            placeholder=" Climbing Ability (1-10)"
-            // min="1"
+            placeholder=" Climbing Ability (1-5)"
+            min="1"
             max="5"
             name="climbAbility"
             value={this.state.climbAbility}

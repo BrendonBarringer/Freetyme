@@ -94,6 +94,20 @@
         #timeInput {
             margin-right: 10px;
         }
+        .aboutButton {
+            background-color: #009EFF;
+            color: white;
+            padding: 10px;
+        }
+        .aboutButton:hover {
+            background-color: blue;
+        }
+        .aboutButton a {
+            color: white;
+        }
+        #climb {
+            width: 180px;
+        }
         
 
         /* Mikes css */ 
