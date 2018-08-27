@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import moment from "moment";
 
 class Meeting extends Component {
 
@@ -26,12 +27,16 @@ class Meeting extends Component {
     });
   }
 
+  formatTime = (time) => {
+      return moment(time).format('MMM DD, YYYY  h:mm A')
+  }
+
   render(props) {
     this.meeting = this.props.meeting;
     return (
       <div className="results">
         <div>
-          StartTime: {this.props.meeting.startTime}
+          StartTime: {this.formatTime(this.props.meeting.startTime)}
         </div>
         <div>
           <div>Who's all signed up:</div>
