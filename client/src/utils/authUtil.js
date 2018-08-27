@@ -114,8 +114,8 @@ class AuthUtil {
     });
   }
 
-  signup(username, password, callback) {
-    axios.post(`/auth/signup`, {username, password})
+  signup(fullname, username, climbAbility, password, callback) {
+    axios.post(`/auth/signup`, {fullname, username, climbAbility, password})
     .then(function (response) {
       console.log(response);
       callback();

@@ -7,7 +7,8 @@ router.get('/api/freetime',
   ensureAuthenticated(),
   function (req, res) {
     db.FreeTime.findAll({
-      include: [db.User]
+      include: [db.User],
+      order: ["startTime"]
   })
   .then(matches => {
     res.json(matches)
