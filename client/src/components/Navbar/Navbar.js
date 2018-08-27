@@ -9,21 +9,21 @@ import authUtil from '../../utils/authUtil';
 class Navbar extends React.Component {
   state = { 
     loggedInId: 0,
-    username: ""
+    fullname: ""
   }
 
   componentDidMount() {
     // This will check for logged in and trigger loggedInId notify callbacks
     // (If we don't do this, we won't know current state when component is mounted)
-    authUtil.registerLoginNotify((loggedInId, username) => this.loginCallback(loggedInId, username) );
+    authUtil.registerLoginNotify((loggedInId, username, fullname) => this.loginCallback(loggedInId, username, fullname) );
   }
 
   componentWillUnmount() {
-    authUtil.unregisterLoginNotify((loggedInId, username) => this.loginCallback(loggedInId, username) );   
+    authUtil.unregisterLoginNotify((loggedInId, username, fullname) => this.loginCallback(loggedInId, username, fullname) );   
   }
 
-  loginCallback(loggedInId, username) {
-    this.setState({loggedInId, username});
+  loginCallback(loggedInId, username, fullname) {
+    this.setState({loggedInId, username, fullname});
   }
 
   render(props) {
@@ -153,7 +153,7 @@ class Navbar extends React.Component {
           </ul>
           <form className="form-inline">
             {this.state.loggedInId > 0 ?
-              (<span className="navbar-text">Hello, {this.state.username}</span>) :
+              (<span className="navbar-text">Hello, {this.state.fullname}</span>) :
               (<span className="navbar-text"></span>)
             }
           </form>

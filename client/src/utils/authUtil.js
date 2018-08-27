@@ -32,9 +32,9 @@ class AuthUtil {
   }
 
   // Notify everyone of login or logout
-  callNotifyCallbacks(userId, username) {
+  callNotifyCallbacks(userId, username, fullname) {
     for (let i = 0; i < this.loginNotifyCallbacks.length; i++)
-      this.loginNotifyCallbacks[i](userId, username);
+      this.loginNotifyCallbacks[i](userId, username, fullname);
   }
 
   // Check for login
@@ -46,8 +46,8 @@ class AuthUtil {
   isLoggedIn(cb) {
     if (this.loggedInChecked) {
       if (cb)
-        cb(this.loggedIn, this.username);
-      this.callNotifyCallbacks(this.userId, this.username);
+        cb(this.loggedIn, this.username, this.fullname);
+      this.callNotifyCallbacks(this.userId, this.username, this.fullname);
     } else {
       axios.get("/auth/is-logged-in")
       .then((result) => {
@@ -55,14 +55,16 @@ class AuthUtil {
           this.loggedIn = true;
           this.userId = result.data.user.id;
           this.username = result.data.user.username;
+          this.fullname = result.data.user.fullname;
         } else {
           this.loggedIn = false;
           this.userId = 0;
           this.username = "";
+          this.fullname = "";
         }
         if (cb)
-          cb(this.loggedIn, this.username);
-        this.callNotifyCallbacks(this.userId, this.username);
+          cb(this.loggedIn, this.username, this.fullname);
+        this.callNotifyCallbacks(this.userId, this.username, this.fullname);
       })
       .catch((error) => {
         if (cb)
