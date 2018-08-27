@@ -50,7 +50,10 @@ resetEnd = () => {
 
 };
 click2 = () =>{
+  if(this.state.time1 !== "" && this.state.time2 !==""){
     API.addFreetime(this.state.time1, this.state.time2);
+  }
+  else alert('Please add valid times');
     console.log(this.state.time1, this.state.time2)
   }
   render() {
