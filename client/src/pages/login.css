@@ -98,10 +98,9 @@
         }
 
         .list {
-            color: #009EFF;
             margin-top: 5px;
             text-align: center;
-            width: 75%;
+            width: 50%;
             font-size: 15px;
             margin: auto;
             font-family: sans-serif;
@@ -122,6 +121,10 @@
             padding: 12px;
         }
 
+        #title {
+            -webkit-animation-delay: 1.5s;
+        
+        }
 
         /* Desktop media query */
         @media only screen and (min-width: 768px) {
