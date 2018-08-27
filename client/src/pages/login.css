@@ -77,19 +77,37 @@
             background-color: blue;
             color: white;
         }
-        table {
-           
-        }
-
 
         /* Mikes css */ 
         #times {
             color: #009EFF;
         }
 
+        .list {
+            color: #009EFF;
+            margin-top: 5px;
+            text-align: center;
+            width: 75%;
+            font-size: 15px;
+            margin: auto;
+            font-family: sans-serif;
+            border: 5px solid lightgray;
+            box-shadow: 5px 5px 7px #009EFF;
+        }
 
+        .results{
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        } 
+          
+        .results {
+            border: 1px solid #ddd;
+            margin-top: -1px; 
+            background-color: #f6f6f6;
+            padding: 12px;
+        }
 
-        
 
         /* Desktop media query */
         @media only screen and (min-width: 768px) {

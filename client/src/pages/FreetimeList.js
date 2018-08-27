@@ -6,6 +6,7 @@ import Freetime from "../components/Freetime";
 import Navbar from '../components/Navbar';
 
 
+
 class FreetimeList extends Component {
     
     constructor(props) {
@@ -42,9 +43,12 @@ class FreetimeList extends Component {
     }
 
     render(props) {
+
         return (
-            <div>
+            
+            <div className="freetimesList">
                 <Navbar />
+                <div className="list">
                 {
                     this.state.freetimeList.map((item, i) => {
                         return (
@@ -60,6 +64,8 @@ class FreetimeList extends Component {
                         )
                     })
                 }
+                </div>
+                
             </div>
         );
     }

@@ -28,12 +28,12 @@ class Signup extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     // alert(`Username: ${this.state.username}\nPassword: ${this.state.password}`);
-    authUtil.signup(this.state.username, 
-                    this.state.password, 
-                    () => {
-                      this.setState({ username: "", password: "" });
-                      window.location.href='/login';
-                    });
+    authUtil.signup(this.state.username,
+      this.state.password,
+      () => {
+        this.setState({ username: "", password: "" });
+        window.location.href = '/login';
+      });
   };
 
 
@@ -41,42 +41,42 @@ class Signup extends Component {
   render() {
     return (
       <div>
-      <div id="logo">                
-      <img src= {Logo} alt='logo' />
-      <p>Insert catchpharase here.</p>
-      </div>
-      
-      <form id="form">        
-        <h1>Sign up</h1>
-        <input
-          className = "formInput"
-          type="email"
-          placeholder="  Email"
-          name="username"
-          value={this.state.username}
-          onChange={this.handleInputChange}
-        />
-        <input
-          className = "formInput"
-          type="password"
-          placeholder="  Password"
-          name="password"
-          value={this.state.password}
-          onChange={this.handleInputChange}
-        />
-        <input
-          className = "formInput"
-          type="password"
-          placeholder=" Confirm Password"
-          name="passwordConfirm"
-          value={this.state.passwordConfirm}
-          onChange={this.handleInputChange}
-        />
-        
-        <br />
-        <button onClick={this.handleFormSubmit}>Create Account</button>
-        
-      </form>
+        <div id="logo">
+          <img src={Logo} alt='logo' />
+          <p>When you have the time...We help you climb</p>
+        </div>
+
+        <form id="form">
+          <h1>Sign up</h1>
+          <input
+            className="formInput"
+            type="email"
+            placeholder="  Email"
+            name="username"
+            value={this.state.username}
+            onChange={this.handleInputChange}
+          />
+          <input
+            className="formInput"
+            type="password"
+            placeholder="  Password"
+            name="password"
+            value={this.state.password}
+            onChange={this.handleInputChange}
+          />
+          <input
+            className="formInput"
+            type="password"
+            placeholder=" Confirm Password"
+            name="passwordConfirm"
+            value={this.state.passwordConfirm}
+            onChange={this.handleInputChange}
+          />
+
+          <br />
+          <button onClick={this.handleFormSubmit}>Create Account</button>
+
+        </form>
       </div>
     );
   }
