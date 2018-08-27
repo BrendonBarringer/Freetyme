@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Profile from "./pages/Profile";
 import Discover from "./pages/Discover";
 import FreetimeList from "./pages/FreetimeList";
+import MeetingList from "./pages/MeetingList";
 import Signup from './pages/Signup';
 // import Navbar from "./components/Navbar";
 // import Footer from "./components/Footer";
@@ -32,6 +33,7 @@ class App extends React.Component {
 
             <Route exact path="/discover" component={Discover} />
             <Route exact path="/freetime" component={FreetimeList} />
+            <Route exact path="/meeting"  component={MeetingList} />
 
           </Wrapper>
           {/* <Footer /> */}

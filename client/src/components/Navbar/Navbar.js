@@ -8,23 +8,22 @@ import authUtil from '../../utils/authUtil';
 
 class Navbar extends React.Component {
   state = { 
-    loggedIn: false,
+    loggedInId: 0,
     username: ""
   }
 
   componentDidMount() {
-    // This will check for logged in and trigger loggedIn notify callbacks
+    // This will check for logged in and trigger loggedInId notify callbacks
     // (If we don't do this, we won't know current state when component is mounted)
-    authUtil.registerLoginNotify((loggedIn, username) => this.loginCallback(loggedIn, username) );
-    authUtil.checkLoggedIn();
+    authUtil.registerLoginNotify((loggedInId, username) => this.loginCallback(loggedInId, username) );
   }
 
   componentWillUnmount() {
-    authUtil.unregisterLoginNotify((loggedIn, username) => this.loginCallback(loggedIn, username) );   
+    authUtil.unregisterLoginNotify((loggedInId, username) => this.loginCallback(loggedInId, username) );   
   }
 
-  loginCallback(loggedIn, username) {
-    this.setState({loggedIn, username});
+  loginCallback(loggedInId, username) {
+    this.setState({loggedInId, username});
   }
 
   render(props) {
@@ -38,7 +37,7 @@ class Navbar extends React.Component {
         <div className="collapse navbar-collapse" id="navbarSupportedContent1">
           <ul className="navbar-nav mr-auto">
             {
-              this.state.loggedIn ? (
+              this.state.loggedInId > 0 ? (
                 // Logout Page
                 <li
                   className={
@@ -110,7 +109,7 @@ class Navbar extends React.Component {
             >
               <Link to="/discover" className="nav-link">
                 Discover
-          </Link>
+              </Link>
             </li>
 
             <li
@@ -122,9 +121,20 @@ class Navbar extends React.Component {
             >
               <Link to="/freetime" className="nav-link">
                 Freetime List
-          </Link>
+              </Link>
             </li>
 
+            <li
+              className={
+                window.location.pathname === "/meeting"
+                  ? "nav-item active"
+                  : "nav-item"
+              }
+            >
+              <Link to="/meeting" className="nav-link">
+                Meeting List
+              </Link>
+            </li>
 
 
             <li
@@ -142,7 +152,7 @@ class Navbar extends React.Component {
 
           </ul>
           <form className="form-inline">
-            {this.state.loggedIn ?
+            {this.state.loggedInId > 0 ?
               (<span className="navbar-text">Hello {this.state.username}</span>) :
               (<span className="navbar-text"></span>)
             }

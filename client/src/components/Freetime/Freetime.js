@@ -6,12 +6,16 @@ import API from "../../utils/API";
 class Freetime extends Component {
 
     handleRemove = event => {
-        API.removeFreetime(this.freetimeId);
+        API.removeFreetime(this.freetimeId, result => {
+            // Redisplay the page
+            window.location.href = "/freetime";
+        });
     };
 
     handleStartMeeting = event => {
         API.startMeeting(this.startTime, result => {
-            console.log(result);
+            // Redisplay the page
+            window.location.href = "/freetime";
         });
     }
 
