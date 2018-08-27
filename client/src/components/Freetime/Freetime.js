@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import Card from "../Card";
 import { Container, Row, Col } from 'reactstrap';
+import moment from "moment";
 
 
 class Freetime extends Component {
@@ -21,6 +22,10 @@ class Freetime extends Component {
         });
     }
 
+    formatTime = (time) => {
+        return moment(time).format('MMM DD, YYYY  h:mm A')
+    }
+
     render(props) {
         this.freetimeId = this.props.freetimeId;
         this.userId = this.props.userId;
@@ -36,11 +41,11 @@ class Freetime extends Component {
 
                     <p>
 
-                        Start Time: {this.props.startTime}
+                        Start Time: {this.formatTime(this.props.startTime)}
                     </p>
                     <p>
 
-                        End Time: {this.props.endTime}
+                        End Time: {this.formatTime(this.props.endTime)}
                     </p>
 
                     {/* Disable the Remove button if this user didn't create this Freetime */}
