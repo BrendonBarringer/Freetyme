@@ -29,7 +29,7 @@ App designed to allow users to share their planned Rock Climbing adventures and 
 - Cary Mclaughlin (Deployment/Support Engineer)
 - Brendon Barringer (Back End - Routing/Sequelize)
 
-## Screenshots
+## **Screenshots**
 ----
 ##### *=== Login page* ![Login screen](https://github.com/BrendonBarringer/Freetyme/blob/master/client/public/images/loginMobile.PNG)
 
